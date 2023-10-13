@@ -83,7 +83,7 @@
       </div>
     </div>
     <div
-      class="flex flex-col bg-primaryDarker font-black dark:bg-tertiaryDarker mt-12 py-8 px-12 md:px-10 sm:px-6 w-full min-h-screen"
+      class="flex flex-col bg-primaryDarker font-black dark:bg-tertiaryDarker mt-12 px-12 py-8 md:px-10 sm:px-6 w-full min-h-screen"
       @click="toggleCloseDropdown">
       <slot />
     </div>
