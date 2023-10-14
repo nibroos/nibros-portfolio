@@ -2,9 +2,11 @@
   <div>
 
     <Head>
-      <Title>{{ runtimeConfig.public.APP_NAME }}
+      <Title>
+        Frontend Dev: {{ runtimeConfig.public.APP_NAME }}
       </Title>
-      <Meta name="description" content="Dashboard" />
+      <Meta name="description"
+        content="Looking for a frontend developer? Expect top-tier quality in every project. As a frontend developer I optimize web performance and bring your web to achieve the best results. Explore my portfolio and experience web development at its finest." />
     </Head>
 
     <div class="flex flex-col gap-12">
@@ -12,10 +14,12 @@
 
       <LazyMainProjectSectionComponent />
 
+      <LazySideProjectSectionComponent />
+
       <LazySkillsSectionComponent />
 
       <LazyExperiencesSectionComponent />
-      <LazyFooterComponent />
+
     </div>
 
   </div>

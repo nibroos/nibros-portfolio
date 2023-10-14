@@ -1,9 +1,9 @@
 <template>
-  <div class="px-8 lg:px-0 pt-16 flex flex-col gap-6 text-tertiaryDarker dark:text-primaryDarkest">
+  <div class="px-8 lg:px-0 pt-16 xs:pt-0 flex flex-col gap-6 text-tertiaryDarker dark:text-primaryDarkest">
 
     <div class="flex flex-col font-bold gap-2 text-4xl sm:text-2xl sm:gap-1 xs:text-xl">
-      <div class="text-tertiaryDarker dark:text-primary">Need Front-end Developer</div>
-      <div class="text-secondaryLighter dark:text-secondaryLighter">or Backend Developer ?</div>
+      <h1 class="text-tertiaryDarker dark:text-primary">Need Front-end Developer</h1>
+      <h1 class="text-secondaryLighter dark:text-secondaryLighter">or Backend Developer ?</h1>
     </div>
 
     <div class="flex flex-col font-light text-lg xs:w-full w-6/12 lg:w-7/12 sm:w-full sm:text-base">
@@ -20,12 +20,12 @@
     <div class="flex flex-row font-light text-lg w-full gap-3 xs:flex-col xs:gap-0">
       <div class="font-bold xs:hidden">&gt;</div>
       <NuxtLink to="/projects"
-        class="font-bold hover:underline hover:decoration-2 hover:underline-offset-8 cursor-pointer hover:decoration-tertiaryDarkest hover:dark:decoration-primary">
+        class="font-bold underline hover:decoration-2 underline-offset-8 cursor-pointer hover:decoration-tertiaryDarkest hover:dark:decoration-primary">
         View Projects
       </NuxtLink>
       <div>or</div>
       <div
-        class="font-bold hover:underline hover:decoration-2 hover:underline-offset-8 cursor-pointer hover:decoration-tertiaryDarkest hover:dark:decoration-primary">
+        class="font-bold underline hover:decoration-2 underline-offset-8 cursor-pointer hover:decoration-tertiaryDarkest hover:dark:decoration-primary">
         Download Resume
       </div>
     </div>

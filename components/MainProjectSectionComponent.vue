@@ -2,10 +2,10 @@
   <div class="px-8 lg:px-0 flex flex-col gap-8 text-tertiaryDarker dark:text-primaryDarkest">
     <div class="flex flex-row justify-between">
       <div class="text-2xl font-bold">Main Projects</div>
-      <div
+      <NuxtLink to="/projects"
         class="underline decoration-2 decoration-secondaryLighter hover:decoration-secondaryDarker underline-offset-8 text-secondaryLighter hover:text-secondaryDarker hover:dark:text-primaryDarkest hover:dark:decoration-primaryDarkest transition-all ease-in-out cursor-pointer font-semibold text-lg">
         See all
-        projects..</div>
+        projects..</NuxtLink>
     </div>
 
     <div class="grid gap-4 grid-cols-2 lg:grid-cols-1 font-normal">
@@ -41,19 +41,30 @@
         </div>
         <div class="flex flex-col gap-4 w-5/12 sm:w-full text-secondaryDarker dark:text-primary">
           <div class="font-bold">Highlight Features</div>
-          <div class="flex flex-col justify-between h-full sm:gap-2">
-            <ul class="list-disc list-outside pl-4 text-sm sm:hidden">
-              <li>Auth System</li>
-              <li>Roles & Permissions</li>
-              <li>Shift Management</li>
-              <li>Report Summary</li>
-              <li>State filter-saving</li>
-              <li>Stock Opname</li>
-              <li>Validation & Verification</li>
-              <li>Export PDF & Excel</li>
-              <li>Timelines</li>
-              <li>Log Activities</li>
-            </ul>
+          <div class="flex flex-col justify-between h-full sm:gap-4">
+            <div class="flex flex-col gap-2">
+              <ul class="list-disc list-outside pl-4 text-sm sm:hidden">
+                <li>Auth System</li>
+                <li>Roles & Permissions</li>
+                <li>Shift Management</li>
+                <li>Report Summary</li>
+                <li>State filter-saving</li>
+                <li>Stock Opname</li>
+                <li>Validation & Verification</li>
+                <li>Export PDF & Excel</li>
+                <li>Timelines</li>
+                <li>Log Activities</li>
+              </ul>
+              <div class="flex flex-col gap-1">
+                <div class="text-sm sm:hidden">Status: <span class="font-bold">Production</span></div>
+                <div class="text-sm sm:hidden">Role: <span class="font-bold">Fullstack Dev</span></div>
+
+                <div class="text-sm flex flex-row gap-1">
+                  <div>Started:</div>
+                  <div class="font-bold">2022-05-01</div>
+                </div>
+              </div>
+            </div>
             <div class="flex-row gap-2 hidden sm:flex">
               <ul class="list-disc list-outside pl-4 text-xs hidden sm:block">
                 <li>Auth System</li>
@@ -70,51 +81,55 @@
                 <li>Log Activities</li>
               </ul>
             </div>
-            <div class="flex flex-col">
-              <div class="flex flex-row gap-1">
-                <div class="dark:rounded-full dark:bg-tertiaryDarker dark:p-2">
-                  <svg width="26" height="26" viewBox="0 0 97 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M96.6185 23.004C96.6543 23.1365 96.6726 23.2732 96.673 23.4104V44.7445C96.673 45.0184 96.6007 45.2873 96.4634 45.5243C96.3262 45.7612 96.1288 45.9577 95.8913 46.094L77.9852 56.4033V76.8371C77.9852 77.3932 77.6896 77.9066 77.2074 78.1866L39.8299 99.7035C39.7444 99.7521 39.6511 99.7832 39.5577 99.8163C39.5227 99.8279 39.4897 99.8493 39.4527 99.859C39.1914 99.9278 38.9168 99.9278 38.6555 99.859C38.6127 99.8474 38.5739 99.824 38.533 99.8085C38.4475 99.7774 38.358 99.7501 38.2764 99.7035L0.906655 78.1866C0.669256 78.0502 0.472002 77.8536 0.334772 77.6167C0.197543 77.3798 0.125188 77.1109 0.125 76.8371L0.125 12.8347C0.125 12.6947 0.144444 12.5586 0.179444 12.4264C0.19111 12.3817 0.218332 12.3408 0.233887 12.2961C0.263053 12.2145 0.290275 12.1308 0.333052 12.055C0.362219 12.0045 0.404996 11.9636 0.439995 11.917C0.484717 11.8547 0.525549 11.7906 0.578049 11.7361C0.62277 11.6914 0.681103 11.6584 0.731657 11.6195C0.788045 11.5728 0.8386 11.5222 0.902766 11.4853H0.90471L19.5905 0.726845C19.8271 0.590698 20.0953 0.519043 20.3683 0.519043C20.6413 0.519043 20.9095 0.590698 21.1461 0.726845L39.8319 11.4853H39.8358C39.898 11.5242 39.9505 11.5728 40.0069 11.6175C40.0574 11.6564 40.1138 11.6914 40.1586 11.7342C40.213 11.7906 40.2519 11.8547 40.2985 11.917C40.3316 11.9636 40.3763 12.0045 40.4035 12.055C40.4483 12.1328 40.4735 12.2145 40.5047 12.2961C40.5202 12.3408 40.5474 12.3817 40.5591 12.4283C40.5949 12.5609 40.6132 12.6975 40.6135 12.8347V52.81L56.1844 43.8443V23.4085C56.1844 23.2724 56.2039 23.1343 56.2389 23.004C56.2525 22.9574 56.2777 22.9165 56.2933 22.8718C56.3244 22.7901 56.3516 22.7065 56.3944 22.6307C56.4236 22.5801 56.4664 22.5393 56.4994 22.4926C56.5461 22.4304 56.585 22.3663 56.6394 22.3118C56.6841 22.2671 56.7405 22.234 56.7911 22.1951C56.8494 22.1485 56.9 22.0979 56.9622 22.061H56.9641L75.6519 11.3025C75.8884 11.1662 76.1566 11.0944 76.4297 11.0944C76.7027 11.0944 76.9709 11.1662 77.2074 11.3025L95.8932 22.061C95.9594 22.0999 96.0099 22.1485 96.0682 22.1932C96.1169 22.2321 96.1732 22.2671 96.218 22.3099C96.2724 22.3663 96.3113 22.4304 96.358 22.4926C96.393 22.5393 96.4357 22.5801 96.463 22.6307C96.5077 22.7065 96.533 22.7901 96.5641 22.8718C96.5816 22.9165 96.6068 22.9574 96.6185 23.004ZM93.558 43.8443V26.1034L87.0189 29.8678L77.9852 35.0691V52.81L93.56 43.8443H93.558ZM74.8722 75.9369V58.1844L65.9862 63.2593L40.6116 77.7413V95.661L74.8722 75.9369ZM3.23995 15.5277V75.9369L37.4966 95.6591V77.7432L19.6003 67.6148L19.5944 67.6109L19.5866 67.607C19.5264 67.572 19.4758 67.5214 19.4194 67.4787C19.3708 67.4398 19.3144 67.4087 19.2717 67.3659L19.2678 67.3601C19.2172 67.3114 19.1822 67.2512 19.1394 67.1967C19.1005 67.1442 19.0539 67.0995 19.0228 67.0451L19.0208 67.0392C18.9858 66.9809 18.9644 66.9109 18.9392 66.8448C18.9139 66.7865 18.8808 66.732 18.8653 66.6698V66.6678C18.8458 66.594 18.8419 66.5162 18.8342 66.4403C18.8264 66.382 18.8108 66.3237 18.8108 66.2654V24.4935L9.77902 19.2902L3.23995 15.5297V15.5277ZM20.3702 3.87291L4.80132 12.8347L20.3664 21.7965L35.9333 12.8328L20.3664 3.87291H20.3702ZM28.4668 59.8021L37.4986 54.6027V15.5277L30.9595 19.2921L21.9258 24.4935V63.5684L28.4668 59.8021ZM76.4297 14.4486L60.8627 23.4104L76.4297 32.3722L91.9947 23.4085L76.4297 14.4486ZM74.8722 35.0691L65.8384 29.8678L59.2994 26.1034V43.8443L68.3312 49.0437L74.8722 52.81V35.0691ZM39.0522 75.0483L61.8854 62.0129L73.2991 55.4991L57.7438 46.5431L39.8338 56.8544L23.5105 66.2517L39.0522 75.0483Z"
-                      fill="#FF2D20" />
-                  </svg>
-                </div>
-
-                <div class="dark:rounded-full dark:bg-tertiaryDarker dark:p-2">
-                  <svg width="26" height="26" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M409.6 36H512L256 477.6L0 36H101.12H195.84L256 138.4L314.88 36H409.6Z" fill="#41B883" />
-                    <path d="M0 36L256 477.6L512 36H409.6L256 300.96L101.12 36H0Z" fill="#41B883" />
-                    <path d="M101.12 36L256 302.24L409.6 36H314.88L256 138.4L195.84 36H101.12Z" fill="#35495E" />
-                  </svg>
-                </div>
-
+            <div class="flex-col gap-1 hidden sm:flex">
+              <div class="text-sm flex flex-row gap-1">
+                <div>Status:</div>
+                <div class="font-bold">Production</div>
               </div>
+              <div class="text-sm flex flex-row gap-1">
+                <div>Role:</div>
+                <div class="font-bold">Fullstack Dev</div>
+              </div>
+              <div class="text-sm flex flex-row gap-1">
+                <div>Started:</div>
+                <div class="font-bold">2022-05-01</div>
+              </div>
+            </div>
+            <div class="flex flex-row gap-1">
+              <div class="dark:rounded-full dark:bg-tertiaryDarker dark:p-2">
+                <svg width="26" height="26" viewBox="0 0 97 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M96.6185 23.004C96.6543 23.1365 96.6726 23.2732 96.673 23.4104V44.7445C96.673 45.0184 96.6007 45.2873 96.4634 45.5243C96.3262 45.7612 96.1288 45.9577 95.8913 46.094L77.9852 56.4033V76.8371C77.9852 77.3932 77.6896 77.9066 77.2074 78.1866L39.8299 99.7035C39.7444 99.7521 39.6511 99.7832 39.5577 99.8163C39.5227 99.8279 39.4897 99.8493 39.4527 99.859C39.1914 99.9278 38.9168 99.9278 38.6555 99.859C38.6127 99.8474 38.5739 99.824 38.533 99.8085C38.4475 99.7774 38.358 99.7501 38.2764 99.7035L0.906655 78.1866C0.669256 78.0502 0.472002 77.8536 0.334772 77.6167C0.197543 77.3798 0.125188 77.1109 0.125 76.8371L0.125 12.8347C0.125 12.6947 0.144444 12.5586 0.179444 12.4264C0.19111 12.3817 0.218332 12.3408 0.233887 12.2961C0.263053 12.2145 0.290275 12.1308 0.333052 12.055C0.362219 12.0045 0.404996 11.9636 0.439995 11.917C0.484717 11.8547 0.525549 11.7906 0.578049 11.7361C0.62277 11.6914 0.681103 11.6584 0.731657 11.6195C0.788045 11.5728 0.8386 11.5222 0.902766 11.4853H0.90471L19.5905 0.726845C19.8271 0.590698 20.0953 0.519043 20.3683 0.519043C20.6413 0.519043 20.9095 0.590698 21.1461 0.726845L39.8319 11.4853H39.8358C39.898 11.5242 39.9505 11.5728 40.0069 11.6175C40.0574 11.6564 40.1138 11.6914 40.1586 11.7342C40.213 11.7906 40.2519 11.8547 40.2985 11.917C40.3316 11.9636 40.3763 12.0045 40.4035 12.055C40.4483 12.1328 40.4735 12.2145 40.5047 12.2961C40.5202 12.3408 40.5474 12.3817 40.5591 12.4283C40.5949 12.5609 40.6132 12.6975 40.6135 12.8347V52.81L56.1844 43.8443V23.4085C56.1844 23.2724 56.2039 23.1343 56.2389 23.004C56.2525 22.9574 56.2777 22.9165 56.2933 22.8718C56.3244 22.7901 56.3516 22.7065 56.3944 22.6307C56.4236 22.5801 56.4664 22.5393 56.4994 22.4926C56.5461 22.4304 56.585 22.3663 56.6394 22.3118C56.6841 22.2671 56.7405 22.234 56.7911 22.1951C56.8494 22.1485 56.9 22.0979 56.9622 22.061H56.9641L75.6519 11.3025C75.8884 11.1662 76.1566 11.0944 76.4297 11.0944C76.7027 11.0944 76.9709 11.1662 77.2074 11.3025L95.8932 22.061C95.9594 22.0999 96.0099 22.1485 96.0682 22.1932C96.1169 22.2321 96.1732 22.2671 96.218 22.3099C96.2724 22.3663 96.3113 22.4304 96.358 22.4926C96.393 22.5393 96.4357 22.5801 96.463 22.6307C96.5077 22.7065 96.533 22.7901 96.5641 22.8718C96.5816 22.9165 96.6068 22.9574 96.6185 23.004ZM93.558 43.8443V26.1034L87.0189 29.8678L77.9852 35.0691V52.81L93.56 43.8443H93.558ZM74.8722 75.9369V58.1844L65.9862 63.2593L40.6116 77.7413V95.661L74.8722 75.9369ZM3.23995 15.5277V75.9369L37.4966 95.6591V77.7432L19.6003 67.6148L19.5944 67.6109L19.5866 67.607C19.5264 67.572 19.4758 67.5214 19.4194 67.4787C19.3708 67.4398 19.3144 67.4087 19.2717 67.3659L19.2678 67.3601C19.2172 67.3114 19.1822 67.2512 19.1394 67.1967C19.1005 67.1442 19.0539 67.0995 19.0228 67.0451L19.0208 67.0392C18.9858 66.9809 18.9644 66.9109 18.9392 66.8448C18.9139 66.7865 18.8808 66.732 18.8653 66.6698V66.6678C18.8458 66.594 18.8419 66.5162 18.8342 66.4403C18.8264 66.382 18.8108 66.3237 18.8108 66.2654V24.4935L9.77902 19.2902L3.23995 15.5297V15.5277ZM20.3702 3.87291L4.80132 12.8347L20.3664 21.7965L35.9333 12.8328L20.3664 3.87291H20.3702ZM28.4668 59.8021L37.4986 54.6027V15.5277L30.9595 19.2921L21.9258 24.4935V63.5684L28.4668 59.8021ZM76.4297 14.4486L60.8627 23.4104L76.4297 32.3722L91.9947 23.4085L76.4297 14.4486ZM74.8722 35.0691L65.8384 29.8678L59.2994 26.1034V43.8443L68.3312 49.0437L74.8722 52.81V35.0691ZM39.0522 75.0483L61.8854 62.0129L73.2991 55.4991L57.7438 46.5431L39.8338 56.8544L23.5105 66.2517L39.0522 75.0483Z"
+                    fill="#FF2D20" />
+                </svg>
+              </div>
+
+              <div class="dark:rounded-full dark:bg-tertiaryDarker dark:p-2">
+                <svg width="26" height="26" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M409.6 36H512L256 477.6L0 36H101.12H195.84L256 138.4L314.88 36H409.6Z" fill="#41B883" />
+                  <path d="M0 36L256 477.6L512 36H409.6L256 300.96L101.12 36H0Z" fill="#41B883" />
+                  <path d="M101.12 36L256 302.24L409.6 36H314.88L256 138.4L195.84 36H101.12Z" fill="#35495E" />
+                </svg>
+              </div>
+
             </div>
           </div>
         </div>
-        <div class="flex flex-col w-7/12 sm:w-full gap-4">
-          <div class="flex flex-row justify-between">
-            <div class="font-bold">E-SPBU Management</div>
-            <div>
-              <NuxtLink
-                class="cursor-pointer text-secondary dark:text-secondaryLighter hover:text-tertiaryDarker dark:hover:text-primaryDarkest transition-all ">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M12 0C5.37 0 0 5.37 0 12C0 17.31 3.435 21.795 8.205 23.385C8.805 23.49 9.03 23.13 9.03 22.815C9.03 22.53 9.015 21.585 9.015 20.58C6 21.135 5.22 19.845 4.98 19.17C4.845 18.825 4.26 17.76 3.75 17.475C3.33 17.25 2.73 16.695 3.735 16.68C4.68 16.665 5.355 17.55 5.58 17.91C6.66 19.725 8.385 19.215 9.075 18.9C9.18 18.12 9.495 17.595 9.84 17.295C7.17 16.995 4.38 15.96 4.38 11.37C4.38 10.065 4.845 8.985 5.61 8.145C5.49 7.845 5.07 6.615 5.73 4.965C5.73 4.965 6.735 4.65 9.03 6.195C9.99 5.925 11.01 5.79 12.03 5.79C13.05 5.79 14.07 5.925 15.03 6.195C17.325 4.635 18.33 4.965 18.33 4.965C18.99 6.615 18.57 7.845 18.45 8.145C19.215 8.985 19.68 10.05 19.68 11.37C19.68 15.975 16.875 16.995 14.205 17.295C14.64 17.67 15.015 18.39 15.015 19.515C15.015 21.12 15 22.41 15 22.815C15 23.13 15.225 23.505 15.825 23.385C18.2072 22.5807 20.2772 21.0497 21.7437 19.0074C23.2101 16.965 23.9993 14.5143 24 12C24 5.37 18.63 0 12 0Z"
-                    fill="currentColor" />
-                </svg>
-              </NuxtLink>
+        <div class="flex flex-col w-7/12 sm:w-full justify-between gap-4">
+          <div class="flex flex-col gap-4">
+            <div class="flex flex-row justify-between">
+              <div class="font-bold">E-SPBU Management</div>
             </div>
+            <img src="../assets/images/e-spbu cover.png" class="object-cover rounded-lg" alt="E-SPBU Management System">
+            <p class="text-sm"><span class="font-bold">P*rtamina</span> has an application with features that <span
+                class="font-bold">may not fully
+                meet</span> the needs of
+              administration. That's why
+              SPBU UNDIP needed an application that makes it easy for employees to <span class="font-bold">manage</span>
+              incoming and outgoing assets, with
+              <span class="font-bold">user-friendly</span> data editing in case of human errors.
+            </p>
           </div>
-          <img src="../assets/images/e-spbu cover.png" class="object-cover rounded-lg" alt="E-SPBU Management System">
-          <p class="text-sm"><span class="font-bold">P*rtamina</span> has an application with features that <span
-              class="font-bold">may not fully
-              meet</span> the needs of
-            administration. That's why
-            SPBU UNDIP needed an application that makes it easy for employees to <span class="font-bold">manage</span>
-            incoming and outgoing assets, with
-            <span class="font-bold">user-friendly</span> data editing in case of human errors.
-          </p>
           <div class="flex flex-row w-full gap-2 justify-between sm:hidden">
             <div
               class="flex flex-row gap-2 justify-center items-center bg-tertiary hover:bg-tertiaryDarkest text-primary px-3 py-2 rounded-lg text-xs cursor-pointer transition-all ease-in-out w-1/2">
@@ -141,6 +156,110 @@
                 </svg>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex flex-row sm:flex-col-reverse rounded-lg bg-secondaryLighter bg-opacity-50 border border-secondary dark:border-secondaryLighter p-4 gap-2 sm:gap-4">
+
+        <div class="flex flex-col gap-4 sm:gap-0 w-5/12 sm:w-full text-secondaryDarker dark:text-primary">
+          <div class="font-bold">Highlight Features</div>
+          <div class="flex flex-col justify-between h-full sm:gap-4">
+            <div class="flex flex-col gap-2">
+              <ul class="list-disc list-outside pl-4 text-sm sm:hidden">
+                <li>Auth System</li>
+                <li>Roles & Permissions</li>
+                <li>Monthly Billing</li>
+                <li>Report Summary</li>
+                <li>State filter-saving</li>
+                <li>Validation & Verification</li>
+                <li>Dark Mode</li>
+                <li>Mobile responsive</li>
+                <li>Export Excel</li>
+                <li>Log Activities</li>
+              </ul>
+
+              <div class="flex-col gap-1 flex sm:hidden">
+                <div class="text-sm flex flex-row gap-1">
+                  <div class="text-sm sm:hidden">Status: <span class="font-bold">Dev (Hiatus)</span></div>
+                </div>
+                <div class="text-sm flex flex-row gap-1">
+                  <div>Role:</div>
+                  <div class="font-bold">Fullstack Dev</div>
+                </div>
+                <div class="text-sm flex flex-row gap-1">
+                  <div>Started:</div>
+                  <div class="font-bold">2023-02-01</div>
+                </div>
+              </div>
+            </div>
+            <div class="flex-row gap-2 hidden sm:flex">
+              <ul class="list-disc list-outside pl-4 text-xs hidden sm:block">
+                <li>Auth System</li>
+                <li>Roles & Permissions</li>
+                <li>Report Summary</li>
+                <li>State filter-saving</li>
+                <li>Validation & Verification</li>
+              </ul>
+              <ul class="list-disc list-outside pl-4 text-xs hidden sm:block">
+                <li>Mobile responsive</li>
+                <li>Dark Mode</li>
+                <li>Export Excel</li>
+                <li>Log Activities</li>
+              </ul>
+            </div>
+            <div class="flex-col gap-1 sm:flex hidden">
+              <div class="text-sm flex flex-row gap-1">
+                <div class="text-sm">Status: <span class="font-bold">Dev (Hiatus)</span></div>
+              </div>
+              <div class="text-sm flex flex-row gap-1">
+                <div>Role:</div>
+                <div class="font-bold">Fullstack Dev</div>
+              </div>
+              <div class="text-sm flex flex-row gap-1">
+                <div>Started:</div>
+                <div class="font-bold">2023-02-01</div>
+              </div>
+            </div>
+            <div class="flex flex-row gap-1">
+              <div class="dark:rounded-full dark:bg-tertiaryDarker dark:p-2">
+                <svg width="26" height="26" viewBox="0 0 97 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M96.6185 23.004C96.6543 23.1365 96.6726 23.2732 96.673 23.4104V44.7445C96.673 45.0184 96.6007 45.2873 96.4634 45.5243C96.3262 45.7612 96.1288 45.9577 95.8913 46.094L77.9852 56.4033V76.8371C77.9852 77.3932 77.6896 77.9066 77.2074 78.1866L39.8299 99.7035C39.7444 99.7521 39.6511 99.7832 39.5577 99.8163C39.5227 99.8279 39.4897 99.8493 39.4527 99.859C39.1914 99.9278 38.9168 99.9278 38.6555 99.859C38.6127 99.8474 38.5739 99.824 38.533 99.8085C38.4475 99.7774 38.358 99.7501 38.2764 99.7035L0.906655 78.1866C0.669256 78.0502 0.472002 77.8536 0.334772 77.6167C0.197543 77.3798 0.125188 77.1109 0.125 76.8371L0.125 12.8347C0.125 12.6947 0.144444 12.5586 0.179444 12.4264C0.19111 12.3817 0.218332 12.3408 0.233887 12.2961C0.263053 12.2145 0.290275 12.1308 0.333052 12.055C0.362219 12.0045 0.404996 11.9636 0.439995 11.917C0.484717 11.8547 0.525549 11.7906 0.578049 11.7361C0.62277 11.6914 0.681103 11.6584 0.731657 11.6195C0.788045 11.5728 0.8386 11.5222 0.902766 11.4853H0.90471L19.5905 0.726845C19.8271 0.590698 20.0953 0.519043 20.3683 0.519043C20.6413 0.519043 20.9095 0.590698 21.1461 0.726845L39.8319 11.4853H39.8358C39.898 11.5242 39.9505 11.5728 40.0069 11.6175C40.0574 11.6564 40.1138 11.6914 40.1586 11.7342C40.213 11.7906 40.2519 11.8547 40.2985 11.917C40.3316 11.9636 40.3763 12.0045 40.4035 12.055C40.4483 12.1328 40.4735 12.2145 40.5047 12.2961C40.5202 12.3408 40.5474 12.3817 40.5591 12.4283C40.5949 12.5609 40.6132 12.6975 40.6135 12.8347V52.81L56.1844 43.8443V23.4085C56.1844 23.2724 56.2039 23.1343 56.2389 23.004C56.2525 22.9574 56.2777 22.9165 56.2933 22.8718C56.3244 22.7901 56.3516 22.7065 56.3944 22.6307C56.4236 22.5801 56.4664 22.5393 56.4994 22.4926C56.5461 22.4304 56.585 22.3663 56.6394 22.3118C56.6841 22.2671 56.7405 22.234 56.7911 22.1951C56.8494 22.1485 56.9 22.0979 56.9622 22.061H56.9641L75.6519 11.3025C75.8884 11.1662 76.1566 11.0944 76.4297 11.0944C76.7027 11.0944 76.9709 11.1662 77.2074 11.3025L95.8932 22.061C95.9594 22.0999 96.0099 22.1485 96.0682 22.1932C96.1169 22.2321 96.1732 22.2671 96.218 22.3099C96.2724 22.3663 96.3113 22.4304 96.358 22.4926C96.393 22.5393 96.4357 22.5801 96.463 22.6307C96.5077 22.7065 96.533 22.7901 96.5641 22.8718C96.5816 22.9165 96.6068 22.9574 96.6185 23.004ZM93.558 43.8443V26.1034L87.0189 29.8678L77.9852 35.0691V52.81L93.56 43.8443H93.558ZM74.8722 75.9369V58.1844L65.9862 63.2593L40.6116 77.7413V95.661L74.8722 75.9369ZM3.23995 15.5277V75.9369L37.4966 95.6591V77.7432L19.6003 67.6148L19.5944 67.6109L19.5866 67.607C19.5264 67.572 19.4758 67.5214 19.4194 67.4787C19.3708 67.4398 19.3144 67.4087 19.2717 67.3659L19.2678 67.3601C19.2172 67.3114 19.1822 67.2512 19.1394 67.1967C19.1005 67.1442 19.0539 67.0995 19.0228 67.0451L19.0208 67.0392C18.9858 66.9809 18.9644 66.9109 18.9392 66.8448C18.9139 66.7865 18.8808 66.732 18.8653 66.6698V66.6678C18.8458 66.594 18.8419 66.5162 18.8342 66.4403C18.8264 66.382 18.8108 66.3237 18.8108 66.2654V24.4935L9.77902 19.2902L3.23995 15.5297V15.5277ZM20.3702 3.87291L4.80132 12.8347L20.3664 21.7965L35.9333 12.8328L20.3664 3.87291H20.3702ZM28.4668 59.8021L37.4986 54.6027V15.5277L30.9595 19.2921L21.9258 24.4935V63.5684L28.4668 59.8021ZM76.4297 14.4486L60.8627 23.4104L76.4297 32.3722L91.9947 23.4085L76.4297 14.4486ZM74.8722 35.0691L65.8384 29.8678L59.2994 26.1034V43.8443L68.3312 49.0437L74.8722 52.81V35.0691ZM39.0522 75.0483L61.8854 62.0129L73.2991 55.4991L57.7438 46.5431L39.8338 56.8544L23.5105 66.2517L39.0522 75.0483Z"
+                    fill="#FF2D20" />
+                </svg>
+              </div>
+
+              <div class="dark:rounded-full dark:bg-tertiaryDarker dark:p-2">
+                <svg width="26" height="26" viewBox="0 0 100 67" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M56.1008 66.6667H93.2752C94.4558 66.6668 95.6158 66.3588 96.6383 65.7737C97.6608 65.1885 98.5098 64.3468 99.1 63.3332C99.6902 62.3197 100 61.1698 100 59.9997C99.9995 58.8295 99.688 57.68 99.097 56.667L74.1318 13.8098C73.5418 12.7965 72.693 11.955 71.6707 11.3699C70.6483 10.7848 69.4887 10.4768 68.3082 10.4768C67.1277 10.4768 65.968 10.7848 64.9457 11.3699C63.9233 11.955 63.0745 12.7965 62.4843 13.8098L56.1008 24.7755L43.6202 3.33255C43.0295 2.31928 42.1803 1.47788 41.1577 0.892933C40.1352 0.30795 38.9753 0 37.7945 0C36.6138 0 35.454 0.30795 34.4313 0.892933C33.4088 1.4779 32.5595 2.31928 31.969 3.33255L0.902951 56.667C0.311951 57.68 0.000500603 58.8295 6.03104e-07 59.9997C-0.000499397 61.1698 0.309901 62.3197 0.900017 63.3332C1.49013 64.3468 2.33915 65.1885 3.36167 65.7737C4.38418 66.3588 5.54415 66.6668 6.72488 66.6667H30.0598C39.3053 66.6667 46.1235 62.6417 50.8152 54.789L62.2055 35.2383L68.3063 24.7755L86.6163 56.2037H62.2055L56.1008 66.6667ZM29.6793 56.193L13.3946 56.1893L37.8055 14.2874L49.9855 35.2383L41.8305 49.2417C38.7148 54.3367 35.1752 56.193 29.6793 56.193Z"
+                    fill="#00DC82" />
+                </svg>
+              </div>
+
+              <div class="dark:rounded-full dark:bg-tertiaryDarker dark:p-2">
+                <svg width="26" height="26" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M409.6 36H512L256 477.6L0 36H101.12H195.84L256 138.4L314.88 36H409.6Z" fill="#41B883" />
+                  <path d="M0 36L256 477.6L512 36H409.6L256 300.96L101.12 36H0Z" fill="#41B883" />
+                  <path d="M101.12 36L256 302.24L409.6 36H314.88L256 138.4L195.84 36H101.12Z" fill="#35495E" />
+                </svg>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col w-7/12 sm:w-full justify-between">
+          <div class="flex flex-col gap-4">
+            <div class="flex flex-row justify-between">
+              <div class="font-bold">Koperasi Multiasa</div>
+            </div>
+            <img src="../assets/images/koperasi cover.png" class="object-cover rounded-lg" alt="E-SPBU Management System">
+            <p class="text-sm">
+              In cooperative management, keeping an eye on things is crucial, especially when committee members change
+              regularly. This app provides a solution for better oversight with clear transactions and preset
+              calculations, making sure there are fewer slip-ups in financial records by the committee.
+            </p>
           </div>
         </div>
       </div>

@@ -2,27 +2,27 @@
   <div>
 
     <Head>
-      <Title>Memulai aplikasi.. • Koperasi Management</Title>
+      <Title>Memulai aplikasi.. • Nibros Ari Wibowo</Title>
     </Head>
-    <div class="h-screen w-screen bg-zinc-50 dark:bg-zinc-900 flex flex-col">
-      <div class="fixed top-0 left-0 w-full z-40 bg-white dark:bg-zinc-800 dark:text-gray-100">
+    <div class="h-screen w-screen bg-primary dark:bg-tertiaryDarker flex flex-col">
+      <div class="fixed top-0 left-0 w-full z-40 bg-primary dark:bg-secondary dark:text-gray-100">
         <div
-          class="flex flex-row justify-between w-full px-12 py-10 border-b border-gray-200 dark:border-black items-center xs:p-6">
+          class="flex flex-row justify-between w-full px-12 py-10 border-b border-secondary dark:border-tertiary items-center xs:p-6">
           <div class="grid grid-cols-4 w-1/4 animate-pulse">
-            <div class="col-start-1 h-6 bg-zinc-200 dark:bg-zinc-600 rounded-full"></div>
+            <div class="col-start-1 h-6 bg-primaryDarkest dark:bg-secondaryLighter rounded-full"></div>
           </div>
-          <div class="text-gray-400 animate-pulse grid grid-cols-3 gap-4 w-2/4">
-            <div class="h-6 bg-zinc-200 dark:bg-zinc-600 rounded-full"></div>
-            <div class="h-6 bg-zinc-200 dark:bg-zinc-600 rounded-full"></div>
-            <div class="h-6 bg-zinc-200 dark:bg-zinc-600 rounded-full"></div>
+          <div class="text-secondaryDarker animate-pulse grid grid-cols-3 gap-4 w-2/4">
+            <div class="h-6 bg-primaryDarkest dark:bg-secondaryLighter rounded-full"></div>
+            <div class="h-6 bg-primaryDarkest dark:bg-secondaryLighter rounded-full"></div>
+            <div class="h-6 bg-primaryDarkest dark:bg-secondaryLighter rounded-full"></div>
           </div>
           <div class="grid grid-cols-4 w-1/4 animate-pulse">
-            <div class="col-end-5 h-6 bg-zinc-200 dark:bg-zinc-600 rounded-full"></div>
+            <div class="col-end-5 h-6 bg-primaryDarkest dark:bg-secondaryLighter rounded-full"></div>
           </div>
         </div>
       </div>
       <div class="flex flex-col justify-center items-center h-screen">
-        <svg class="h-10 w-10 text-emerald-600" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+        <svg class="h-10 w-10 text-secondary" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
           viewBox="0 0 24 24">
           <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2">
             <path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3"
@@ -36,9 +36,9 @@
             </path>
           </g>
         </svg>
-        <h2 class="text-center text-zinc-700 dark:text-white text-2xl font-bold mt-6">Memulai aplikasi...</h2>
-        <p class="w-full text-center text-zinc-500 dark:text-white mt-1">Tunggu sebentar, portfolio <span
-            class="text-emerald-600 font-semibold">Nibros Ari Wibowo</span> sedang dimuat.</p>
+        <h2 class="text-center text-secondary dark:text-primary text-2xl font-bold mt-6">Memulai aplikasi...</h2>
+        <p class="w-full text-center text-zinc-500 dark:text-primary mt-1">Tunggu sebentar, <span
+            class="text-secondaryLighter font-semibold">portfolio Nibros Ari Wibowo</span> sedang dimuat.</p>
       </div>
     </div>
   </div>

@@ -1,50 +1,71 @@
 <template>
   <div>
     <div
-      class="fixed top-0 left-0 w-full z-40 bg-primaryDarker dark:bg-secondaryDarker dark:text-primaryDarker text-tertiary border-b-2 border-secondaryLighter dark:border-secondary">
+      class="fixed top-0 sm:bottom-0 sm:top-auto left-0 w-full z-40 bg-primaryDarker dark:bg-secondaryDarker dark:text-primaryDarker text-secondaryLighter border-b-2 sm:border-b-0 sm:border-t-2 border-secondaryLighter">
       <div
-        class="flex flex-row justify-between w-full px-8 py-2 border-b border-primaryDarker dark:border-tertiaryDarker items-center xs:p-6">
-        <NuxtLink to="/" class="flex flex-row font-bold py-2 tracking-tight items-center gap-2">
+        class="flex flex-row justify-between sm:justify-evenly w-full px-8 py-4 sm:py-2 border-b border-primaryDarker dark:border-tertiaryDarker items-center xs:px-6">
+        <NuxtLink to="/" :class="{ 'text-secondary': homePath.includes(route.path) }"
+          class="flex flex-row font-bold tracking-tight items-center gap-2 sm:flex-col sm:justify-center sm:w-1/3 sm:gap-0">
           <div
-            class="w-10 h-10 rounded-full flex items-center justify-center text-secondary dark:text-secondaryLighter border-2 border-secondary dark:border-secondaryLighter">
+            :class="{ '!text-secondary dark:!text-primary !border-secondary dark:!border-primary': homePath.includes(route.path) }"
+            class="w-10 h-10 rounded-full flex items-center justify-center border-2 text-secondaryLighter dark:text-secondaryLighter border-secondaryLighter sm:w-7 sm:h-7">
             <span class="text-xl font-bold">N</span>
           </div>
-          <div class="flex flex-col text-tertiary dark:text-primary">
+          <div class="flex flex-col text-tertiary dark:text-primary sm:hidden">
             <div class="tracking-wide">Nibros Ari Wibowo</div>
             <div class="whitespace-nowrap -mt-1 font-light tracking-widest dark:text-primaryDarker">Front-end
               Developer
             </div>
           </div>
+          <div :class="{ 'text-secondary dark:!text-primary': homePath.includes(route.path) }"
+            class="sm:flex sm:text-xs flex-col justify-center items-center hidden dark:text-secondaryLighter">
+            <div>Home</div>
+            <div :class="{ '!inline-block': homePath.includes(route.path) }"
+              class="hidden border-b-4 rounded-lg border-secondary dark:border-primary w-4 h-1"></div>
+          </div>
         </NuxtLink>
-        <div v-auto-animate class="flex flex-row gap-4 items-center text-secondaryLighter dark:text-primaryDarker">
-          <NuxtLink to="/"
-            :class="{ '!underline text-secondary dark:text-secondaryLighter decoration-4 underline-offse8 decoration-secondary dark:decoration-secondaryDarker': homePath.includes(route.path) }"
-            class="font-bold dark:hover:text-secondaryLighter hover:text-secondary decoration-secondary dark:decoration-secondaryLighter cursor-pointer hover:underline hover:decoration-4 underline-offset-8 transition-all ease-in-out">
-            Home
-          </NuxtLink>
-          <NuxtLink to="/contacts"
-            :class="{ '!underline text-secondary dark:text-secondaryLighter decoration-4 underline-offse8 decoration-secondary dark:decoration-secondaryDarker': contactsPath.includes(route.path) }"
-            class="font-bold dark:hover:text-secondaryLighter hover:text-secondary decoration-secondary dark:decoration-secondaryLighter cursor-pointer hover:underline hover:decoration-4 underline-offset-8 transition-all ease-in-out">
-            Contact
-          </NuxtLink>
-          <NuxtLink to="/projects"
-            :class="{ '!underline text-secondary dark:text-secondaryLighter decoration-4 underline-offse8 decoration-secondary dark:decoration-secondaryDarker': projectsPath.includes(route.path) }"
-            class="font-bold dark:hover:text-secondaryLighter hover:text-secondary decoration-secondary dark:decoration-secondaryLighter cursor-pointer hover:underline hover:decoration-4 underline-offset-8 transition-all ease-in-out">
-            Projects
-          </NuxtLink>
-          <div :class="{ 'dark:bg-tertiaryDarker': isSettingsOpen }"
-            class="flex items-center rounded-full hover:bg-primaryDarkest dark:hover:bg-tertiaryDarker p-2 cursor-pointer transition ease-in-out duration-200"
-            @click="openSettingsDropdown">
-            <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 48 48">
-              <g fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="4">
+
+        <NuxtLink to="/projects" :class="{ 'text-secondary dark:!text-primary': projectsPath.includes(route.path) }"
+          class="font-bold dark:text-secondaryLighter dark:hover:text-secondaryLighter hover:text-secondary cursor-pointer transition-all ease-in-out hidden sm:flex sm:w-1/3 sm:justify-center sm:flex-col sm:items-center">
+          <div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24">
+              <g fill="none" fill-rule="evenodd">
                 <path
-                  d="M18.284 43.171a19.995 19.995 0 0 1-8.696-5.304a6 6 0 0 0-5.182-9.838A20.09 20.09 0 0 1 4 24c0-2.09.32-4.106.916-6H5a6 6 0 0 0 5.385-8.65a19.968 19.968 0 0 1 8.267-4.627A6 6 0 0 0 24 8a6 6 0 0 0 5.348-3.277a19.968 19.968 0 0 1 8.267 4.627A6 6 0 0 0 43.084 18A19.99 19.99 0 0 1 44 24c0 1.38-.14 2.728-.406 4.03a6 6 0 0 0-5.182 9.838a19.995 19.995 0 0 1-8.696 5.303a6.003 6.003 0 0 0-11.432 0Z" />
-                <path d="M24 31a7 7 0 1 0 0-14a7 7 0 0 0 0 14Z" />
+                  d="M24 0v24H0V0h24ZM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01l-.184-.092Z" />
+                <path fill="currentColor"
+                  d="M3 4a2 2 0 0 1 2-2h2c.364 0 .706.097 1 .268A1.99 1.99 0 0 1 9 2h2c.727 0 1.364.388 1.714.969c.21-.168.456-.296.732-.37l1.932-.517a2 2 0 0 1 2.45 1.414l4.14 15.455a2 2 0 0 1-1.414 2.45l-1.932.517a2 2 0 0 1-2.45-1.414L13 8.663V20a2 2 0 0 1-2 2H9a1.99 1.99 0 0 1-1-.268A1.99 1.99 0 0 1 7 22H5a2 2 0 0 1-2-2V4Zm2 0h2v16H5V4Zm6 16H9V4h2v16Zm2.963-15.469l1.932-.517l4.142 15.455l-1.932.517l-4.142-15.455Z" />
               </g>
             </svg>
           </div>
+          <div :class="{ 'text-secondary dark:text-primary': projectsPath.includes(route.path) }"
+            class="flex flex-col justify-center items-center sm:text-xs">
+            <div>Projects</div>
+            <div :class="{ '!inline-block': projectsPath.includes(route.path) }"
+              class="hidden border-b-4 rounded-lg border-secondary dark:border-primary w-4 h-1"></div>
+          </div>
+        </NuxtLink>
+        <div v-auto-animate
+          class="flex flex-row sm:justify-center gap-4 items-center text-secondaryLighter dark:text-secondaryLighter sm:w-1/3">
+
+          <NuxtLink to="/projects"
+            :class="{ '!underline text-secondary dark:text-primary decoration-4 underline-offse8 decoration-secondary dark:decoration-primary': projectsPath.includes(route.path) }"
+            class="font-bold dark:hover:text-primary hover:text-secondary decoration-secondary dark:decoration-primary cursor-pointer hover:underline hover:decoration-4 underline-offset-8 transition-all ease-in-out sm:hidden">
+            Projects
+          </NuxtLink>
+          <div @click="openSettingsDropdown" class="sm:w-full flex justify-center">
+            <div :class="{ 'dark:bg-tertiaryDarker': isSettingsOpen }"
+              class="flex items-center rounded-full hover:bg-primaryDarkest dark:hover:bg-tertiaryDarker p-2 cursor-pointer transition ease-in-out duration-200 sm:w-max">
+              <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 48 48">
+                <g fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="4">
+                  <path
+                    d="M18.284 43.171a19.995 19.995 0 0 1-8.696-5.304a6 6 0 0 0-5.182-9.838A20.09 20.09 0 0 1 4 24c0-2.09.32-4.106.916-6H5a6 6 0 0 0 5.385-8.65a19.968 19.968 0 0 1 8.267-4.627A6 6 0 0 0 24 8a6 6 0 0 0 5.348-3.277a19.968 19.968 0 0 1 8.267 4.627A6 6 0 0 0 43.084 18A19.99 19.99 0 0 1 44 24c0 1.38-.14 2.728-.406 4.03a6 6 0 0 0-5.182 9.838a19.995 19.995 0 0 1-8.696 5.303a6.003 6.003 0 0 0-11.432 0Z" />
+                  <path d="M24 31a7 7 0 1 0 0-14a7 7 0 0 0 0 14Z" />
+                </g>
+              </svg>
+            </div>
+          </div>
           <div v-if="isSettingsOpen"
-            class="block absolute right-0 top-12 py-4 px-4 bg-primary dark:bg-tertiary dark:border-tertiaryDarker divide-y divide-primaryDarker rounded-lg border-2 border-primaryDarkest w-56 transition ease-in-out duration-200 text-tertiary dark:text-primary">
+            class="block absolute right-2 top-16 sm:-top-32 py-4 px-4 bg-primary dark:bg-tertiary divide-y divide-primaryDarker rounded-lg border-2 border-secondaryLighter dark:border-secondaryLighter w-56 transition ease-in-out duration-200 text-tertiary dark:text-primary">
             <div class="flex flex-col">
               <div class="font-bold my-2">Settings</div>
 
@@ -83,10 +104,12 @@
       </div>
     </div>
     <div
-      class="flex flex-col bg-primaryDarker font-black dark:bg-tertiaryDarker mt-12 px-12 py-8 md:px-10 sm:px-6 w-full min-h-screen"
+      class="flex flex-col bg-primaryDarker font-black dark:bg-tertiaryDarker mt-12 sm:mt-0 px-12 md:px-10 sm:px-6 py-8 w-full min-h-screen"
       @click="toggleCloseDropdown">
       <slot />
     </div>
+
+    <LazyFooterComponent />
   </div>
 </template>
 

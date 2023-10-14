@@ -1,22 +1,22 @@
 <template>
   <div class="px-8 lg:px-0 flex flex-col gap-4 text-tertiaryDarker dark:text-primaryDarkest">
     <div class="flex flex-col gap-2">
-      <div class="text-2xl font-bold">Experience</div>
+      <div class="text-2xl font-bold">Educations</div>
       <div class="font-normal text-secondary dark:text-primaryDarkest w-5/12 md:w-10/12 sm:w-full">I’ve been lucky enough
         to
         establish
         relationships
         with amazing clients. For more details, head over to my <a href="https://www.linkedin.com/in/nibros"
           target="_blank"
-          class="font-bold underline underline-offset-8 decoration-tertiary dark:decoration-primaryDarkest hover:text-tertiaryDarker transition-all ease-in-out">LinkedIn
+          class="font-bold underline decoration-tertiary hover:text-tertiaryDarker transition-all ease-in-out">LinkedIn
           profile</a>.</div>
 
-      <div class="flex flex-col mt-4 text-secondary dark:text-primaryDarkest gap-4 sm:mt-4">
+      <div class="flex flex-col mt-4 text-secondary dark:text-primaryDarkest sm:gap-4 sm:mt-4">
         <div class="flex flex-col">
           <div class="flex flex-row gap-4">
             <div>BP UBIKAR UNDIP</div>
             <div class="relative flex items-center py-2 grow">
-              <div class="flex-grow border-t border-secondary dark:border-primaryDarkest"></div>
+              <div class="flex-grow border-t border-secondary dark:border-tertiaryDarkest"></div>
             </div>
           </div>
           <div class="flex flex-row gap-2 sm:flex-col">
@@ -48,7 +48,7 @@
           <div class="flex flex-row gap-4">
             <div>PT Telkom Regional IV</div>
             <div class="relative flex items-center py-2 grow">
-              <div class="flex-grow border-t border-secondary dark:border-primaryDarkest"></div>
+              <div class="flex-grow border-t border-secondary dark:border-tertiaryDarkest"></div>
             </div>
           </div>
           <div class="flex flex-row gap-2 sm:flex-col">
