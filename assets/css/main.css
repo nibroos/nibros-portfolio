@@ -1010,12 +1010,12 @@ div::-webkit-scrollbar-track {
 }
 
 div::-webkit-scrollbar-thumb {
-  background: #07cc8d;
+  background: var(--color-primary);
   border-radius: 25px;
 }
 
 div::-webkit-scrollbar-thumb:hover {
-  background-color: rgb(10, 190, 133) !important;
+  background-color: var(--color-primary) !important;
   transition: all;
 }
 
@@ -1024,9 +1024,9 @@ div::-webkit-scrollbar-thumb:hover {
 }
 
 [data-theme="dark"] div::-webkit-scrollbar-thumb {
-  background: #047853;
+  background: var(--color-tertiary);
 }
 
 [data-theme="dark"] div::-webkit-scrollbar-thumb:hover {
-  background-color: rgb(5, 107, 75) !important;
+  background-color: var(--color-tertiary) !important;
 }

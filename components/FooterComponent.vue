@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-secondaryDarker p-8 sm:mb-12">
+  <div class="bg-secondaryDarker p-8 sm:mb-12 sticky z-20">
     <div class="flex flex-col gap-4 text-primaryDarkest">
       <div class="grid grid-cols-4 md:grid-cols-2 xs:grid-cols-1 gap-16 lg:gap-8">
         <div class="flex flex-col gap-4">
@@ -42,13 +42,18 @@
           <div class="font-normal text-sm">
             <ul>
               <li>
-                <NuxtLink class="hover:underline cursor-pointer transition-all ease-in-out">Portfolio</NuxtLink>
+                <NuxtLink to="/projects/portfolio" class="hover:underline cursor-pointer transition-all ease-in-out">
+                  Portfolio
+                </NuxtLink>
               </li>
               <li>
-                <NuxtLink class="hover:underline cursor-pointer transition-all ease-in-out">E-SPBU</NuxtLink>
+                <NuxtLink to="/projects/espbu" class="hover:underline cursor-pointer transition-all ease-in-out">E-SPBU
+                </NuxtLink>
               </li>
               <li>
-                <NuxtLink class="hover:underline cursor-pointer transition-all ease-in-out">Koperasi Multiasa</NuxtLink>
+                <NuxtLink to="/projects/koperasi" class="hover:underline cursor-pointer transition-all ease-in-out">
+                  Koperasi
+                  Multiasa</NuxtLink>
               </li>
             </ul>
           </div>

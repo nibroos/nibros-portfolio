@@ -1,8 +1,8 @@
 <template>
-  <div class="px-8 lg:px-0 flex flex-col gap-8 text-tertiaryDarker dark:text-primaryDarkest">
+  <div class="flex flex-col gap-8 text-tertiaryDarker dark:text-primaryDarkest">
     <div class="flex flex-row justify-between">
       <div class="text-2xl font-bold">Main Projects</div>
-      <NuxtLink to="/projects"
+      <NuxtLink to="/projects" v-if="props.isSeeAllProjectsVisible"
         class="underline decoration-2 decoration-secondaryLighter hover:decoration-secondaryDarker underline-offset-8 text-secondaryLighter hover:text-secondaryDarker hover:dark:text-primaryDarkest hover:dark:decoration-primaryDarkest transition-all ease-in-out cursor-pointer font-semibold text-lg">
         See all
         projects..</NuxtLink>
@@ -13,7 +13,7 @@
         class="flex flex-row sm:flex-col-reverse rounded-lg bg-secondaryLighter bg-opacity-50 border border-secondary dark:border-secondaryLighter p-4 gap-2 sm:gap-4">
 
         <div class="w-full gap-2 justify-between hidden sm:flex flex-row">
-          <div
+          <a href="https://espbu.undip.id" target="_blank"
             class="flex flex-row gap-2 justify-center items-center bg-tertiary hover:bg-tertiaryDarkest text-primary px-3 py-2 rounded-lg text-xs cursor-pointer transition-all ease-in-out w-1/2">
             <div>Live Demo</div>
             <div>
@@ -26,8 +26,8 @@
                   fill="currentColor" />
               </svg>
             </div>
-          </div>
-          <div
+          </a>
+          <a href="https://docs.nibross.com/espbu/getting-started/introduction.html" target="_blank"
             class="flex flex-row gap-2 justify-center items-center border border-tertiary bg-primaryDarker text-tertiary dark:text-tertiaryDarkest dark:hover:text-primary dark:bg-secondaryLighter dark:hover:bg-tertiaryDarkest hover:text-primary hover:bg-tertiaryDarkest px-3 py-2 rounded-lg text-xs cursor-pointer transition-all ease-in-out w-1/2">
             <div class="font-medium">Details</div>
             <div>
@@ -37,7 +37,7 @@
                   fill="currentColor" />
               </svg>
             </div>
-          </div>
+          </a>
         </div>
         <div class="flex flex-col gap-4 w-5/12 sm:w-full text-secondaryDarker dark:text-primary">
           <div class="font-bold">Highlight Features</div>
@@ -120,7 +120,44 @@
             <div class="flex flex-row justify-between">
               <div class="font-bold">E-SPBU Management</div>
             </div>
-            <img src="../assets/images/e-spbu cover.png" class="object-cover rounded-lg" alt="E-SPBU Management System">
+            <!-- <picture>
+              <source type="image/webp" srcset="
+            ../assets/images/espbuCover.png?width=100 100w,
+            ../assets/images/espbuCover.png?width=200 200w,
+            ../assets/images/espbuCover.png?width=400 400w,
+            ../assets/images/espbuCover.png?width=800 800w
+            ">
+              <img srcset="
+            ../assets/images/espbuCover.png?width=100 100w,
+            ../assets/images/espbuCover.png?width=200 200w,
+            ../assets/images/espbuCover.png?width=400 400w,
+            ../assets/images/espbuCover.png?width=800 800w
+            " sizes="(max-width: 800px) 100w, 50w" class="object-cover rounded-lg" alt="E-SPBU Management System Cover"
+                loading="lazy" decoding="async">
+            </picture> -->
+            <!-- <picture>
+              <source srcset="../assets/images/espbuCover.png 480w, ../assets/images/espbuCover.png 800w"
+                sizes="(max-width: 600px) 480px, 800px" type="image/webp" />
+              <img src="../assets/images/espbuCover.png" alt="Description" sizes="(max-width: 600px) 480px, 800px" />
+            </picture> -->
+            <picture>
+              <source type="image/webp" srcset="
+            https://github.com/nibroos/nibros-portfolio/assets/73767596/82bc812a-9278-4c5f-8754-a60919a9d08b?width=100 100w,
+            https://github.com/nibroos/nibros-portfolio/assets/73767596/82bc812a-9278-4c5f-8754-a60919a9d08b?width=200 200w,
+            https://github.com/nibroos/nibros-portfolio/assets/73767596/82bc812a-9278-4c5f-8754-a60919a9d08b?width=400 400w,
+            https://github.com/nibroos/nibros-portfolio/assets/73767596/82bc812a-9278-4c5f-8754-a60919a9d08b?width=800 800w
+            ">
+              <img srcset="
+            https://github.com/nibroos/nibros-portfolio/assets/73767596/82bc812a-9278-4c5f-8754-a60919a9d08b?width=100 100w,
+            https://github.com/nibroos/nibros-portfolio/assets/73767596/82bc812a-9278-4c5f-8754-a60919a9d08b?width=200 200w,
+            https://github.com/nibroos/nibros-portfolio/assets/73767596/82bc812a-9278-4c5f-8754-a60919a9d08b?width=400 400w,
+            https://github.com/nibroos/nibros-portfolio/assets/73767596/82bc812a-9278-4c5f-8754-a60919a9d08b?width=800 800w
+            " sizes="(max-width: 800px) 100w, 50w" class="object-cover rounded-lg" alt="E-SPBU Management System Cover"
+                loading="lazy" decoding="async">
+            </picture>
+
+            <!-- <nuxt-img src="/espbuCover.png" format="webp" alt="E-SPBU Management System" width="800px" height="450px"
+              loading="lazy" class="object-cover rounded-lg" /> -->
             <p class="text-sm"><span class="font-bold">P*rtamina</span> has an application with features that <span
                 class="font-bold">may not fully
                 meet</span> the needs of
@@ -131,7 +168,7 @@
             </p>
           </div>
           <div class="flex flex-row w-full gap-2 justify-between sm:hidden">
-            <div
+            <a href="https://espbu.undip.id" target="_blank"
               class="flex flex-row gap-2 justify-center items-center bg-tertiary hover:bg-tertiaryDarkest text-primary px-3 py-2 rounded-lg text-xs cursor-pointer transition-all ease-in-out w-1/2">
               <div>Live Demo</div>
               <div>
@@ -144,8 +181,8 @@
                     fill="currentColor" />
                 </svg>
               </div>
-            </div>
-            <div
+            </a>
+            <a href="https://docs.nibross.com/espbu/getting-started/introduction.html" target="_blank"
               class="flex flex-row gap-2 justify-center items-center border border-tertiary bg-primaryDarker text-tertiary dark:text-tertiaryDarkest dark:hover:text-primary dark:bg-secondaryLighter dark:hover:bg-tertiaryDarkest hover:text-primary hover:bg-tertiaryDarkest px-3 py-2 rounded-lg text-xs cursor-pointer transition-all ease-in-out w-1/2">
               <div class="font-medium">Details</div>
               <div>
@@ -155,13 +192,40 @@
                     fill="currentColor" />
                 </svg>
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>
       <div
         class="flex flex-row sm:flex-col-reverse rounded-lg bg-secondaryLighter bg-opacity-50 border border-secondary dark:border-secondaryLighter p-4 gap-2 sm:gap-4">
 
+        <div class="w-full gap-2 justify-between hidden sm:flex flex-row">
+          <a href="https://koperasi.nibross.com" target="_blank"
+            class="flex flex-row gap-2 justify-center items-center bg-tertiary hover:bg-tertiaryDarkest text-primary px-3 py-2 rounded-lg text-xs cursor-pointer transition-all ease-in-out w-1/2">
+            <div>Live Demo</div>
+            <div>
+              <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M4.96295 6.39998C5.57082 5.81507 6.63098 5.81507 7.23885 6.39998L7.61817 6.76497L8.37681 6.03499L7.99749 5.67C7.49155 5.18266 6.81769 4.9137 6.1009 4.9137C5.38412 4.9137 4.71025 5.18266 4.20431 5.67L3.06583 6.76497C2.5638 7.24958 2.28191 7.90592 2.28191 8.59017C2.28191 9.27442 2.5638 9.93076 3.06583 10.4154C3.3147 10.6552 3.61037 10.8453 3.93585 10.9748C4.26133 11.1044 4.6102 11.1707 4.96241 11.1701C5.31472 11.1708 5.6637 11.1045 5.98928 10.975C6.31486 10.8455 6.61061 10.6553 6.85954 10.4154L7.23885 10.0504L6.48022 9.32041L6.1009 9.68539C5.79856 9.97502 5.3893 10.1376 4.96268 10.1376C4.53606 10.1376 4.1268 9.97502 3.82446 9.68539C3.52321 9.39461 3.35405 9.00076 3.35405 8.59017C3.35405 8.17958 3.52321 7.78574 3.82446 7.49495L4.96295 6.39998Z"
+                  fill="currentColor" />
+                <path
+                  d="M6.85954 3.1146L6.48022 3.47959L7.23885 4.20956L7.61817 3.84457C7.92051 3.55495 8.32977 3.39235 8.75639 3.39235C9.18301 3.39235 9.59227 3.55495 9.89461 3.84457C10.1959 4.13536 10.365 4.52921 10.365 4.9398C10.365 5.35039 10.1959 5.74423 9.89461 6.03502L8.75612 7.12999C8.14825 7.7149 7.08809 7.7149 6.48022 7.12999L6.1009 6.765L5.34227 7.49498L5.72158 7.85997C6.22752 8.34731 6.90138 8.61627 7.61817 8.61627C8.33496 8.61627 9.00882 8.34731 9.51476 7.85997L10.6532 6.765C11.1553 6.28039 11.4372 5.62405 11.4372 4.9398C11.4372 4.25555 11.1553 3.59921 10.6532 3.1146C10.1497 2.63129 9.46759 2.35986 8.75639 2.35986C8.0452 2.35986 7.36303 2.63129 6.85954 3.1146Z"
+                  fill="currentColor" />
+              </svg>
+            </div>
+          </a>
+          <a href="https://docs.nibross.com/koperasi-multiasa/getting-started/introduction.html" target="_blank"
+            class="flex flex-row gap-2 justify-center items-center border border-tertiary bg-primaryDarker text-tertiary dark:text-tertiaryDarkest dark:hover:text-primary dark:bg-secondaryLighter dark:hover:bg-tertiaryDarkest hover:text-primary hover:bg-tertiaryDarkest px-3 py-2 rounded-lg text-xs cursor-pointer transition-all ease-in-out w-1/2">
+            <div class="font-medium">Details</div>
+            <div>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M4.02197 6.91753C4.02197 6.81484 4.06437 6.71636 4.13983 6.64374C4.21529 6.57113 4.31764 6.53034 4.42436 6.53034H9.08642L7.35857 4.86853C7.28301 4.79583 7.24057 4.69722 7.24057 4.5944C7.24057 4.49158 7.28301 4.39298 7.35857 4.32027C7.43413 4.24757 7.53661 4.20673 7.64346 4.20673C7.75032 4.20673 7.8528 4.24757 7.92835 4.32027L10.3427 6.6434C10.3802 6.67937 10.4099 6.72209 10.4302 6.76913C10.4505 6.81617 10.4609 6.8666 10.4609 6.91753C10.4609 6.96846 10.4505 7.01888 10.4302 7.06592C10.4099 7.11296 10.3802 7.15569 10.3427 7.19166L7.92835 9.51478C7.8528 9.58748 7.75032 9.62833 7.64346 9.62833C7.53661 9.62833 7.43413 9.58748 7.35857 9.51478C7.28301 9.44208 7.24057 9.34347 7.24057 9.24065C7.24057 9.13783 7.28301 9.03923 7.35857 8.96652L9.08642 7.30472H4.42436C4.31764 7.30472 4.21529 7.26392 4.13983 7.19131C4.06437 7.1187 4.02197 7.02022 4.02197 6.91753Z"
+                  fill="currentColor" />
+              </svg>
+            </div>
+          </a>
+        </div>
         <div class="flex flex-col gap-4 sm:gap-0 w-5/12 sm:w-full text-secondaryDarker dark:text-primary">
           <div class="font-bold">Highlight Features</div>
           <div class="flex flex-col justify-between h-full sm:gap-4">
@@ -254,12 +318,55 @@
             <div class="flex flex-row justify-between">
               <div class="font-bold">Koperasi Multiasa</div>
             </div>
-            <img src="../assets/images/koperasi cover.png" class="object-cover rounded-lg" alt="E-SPBU Management System">
+
+            <picture>
+              <source type="image/webp" srcset="
+            https://github.com/nibroos/nibros-portfolio/assets/73767596/623ce5bb-471b-463b-99c4-ada7bb974cce?width=100 100w,
+            https://github.com/nibroos/nibros-portfolio/assets/73767596/623ce5bb-471b-463b-99c4-ada7bb974cce?width=200 200w,
+            https://github.com/nibroos/nibros-portfolio/assets/73767596/623ce5bb-471b-463b-99c4-ada7bb974cce?width=400 400w,
+            https://github.com/nibroos/nibros-portfolio/assets/73767596/623ce5bb-471b-463b-99c4-ada7bb974cce?width=800 800w
+            ">
+              <img srcset="
+            https://github.com/nibroos/nibros-portfolio/assets/73767596/623ce5bb-471b-463b-99c4-ada7bb974cce?width=100 100w,
+            https://github.com/nibroos/nibros-portfolio/assets/73767596/623ce5bb-471b-463b-99c4-ada7bb974cce?width=200 200w,
+            https://github.com/nibroos/nibros-portfolio/assets/73767596/623ce5bb-471b-463b-99c4-ada7bb974cce?width=400 400w,
+            https://github.com/nibroos/nibros-portfolio/assets/73767596/623ce5bb-471b-463b-99c4-ada7bb974cce?width=800 800w
+            " sizes="(max-width: 800px) 100w, 50w" class="object-cover rounded-lg" alt="Koperasi Multiasa"
+                loading="lazy" decoding="async">
+            </picture>
+
             <p class="text-sm">
               In cooperative management, keeping an eye on things is crucial, especially when committee members change
               regularly. This app provides a solution for better oversight with clear transactions and preset
               calculations, making sure there are fewer slip-ups in financial records by the committee.
             </p>
+            <div class="flex flex-row w-full gap-2 justify-between sm:hidden">
+              <a href="https://koperasi.nibross.com" target="_blank"
+                class="flex flex-row gap-2 justify-center items-center bg-tertiary hover:bg-tertiaryDarkest text-primary px-3 py-2 rounded-lg text-xs cursor-pointer transition-all ease-in-out w-1/2">
+                <div>Live Demo</div>
+                <div>
+                  <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M4.96295 6.39998C5.57082 5.81507 6.63098 5.81507 7.23885 6.39998L7.61817 6.76497L8.37681 6.03499L7.99749 5.67C7.49155 5.18266 6.81769 4.9137 6.1009 4.9137C5.38412 4.9137 4.71025 5.18266 4.20431 5.67L3.06583 6.76497C2.5638 7.24958 2.28191 7.90592 2.28191 8.59017C2.28191 9.27442 2.5638 9.93076 3.06583 10.4154C3.3147 10.6552 3.61037 10.8453 3.93585 10.9748C4.26133 11.1044 4.6102 11.1707 4.96241 11.1701C5.31472 11.1708 5.6637 11.1045 5.98928 10.975C6.31486 10.8455 6.61061 10.6553 6.85954 10.4154L7.23885 10.0504L6.48022 9.32041L6.1009 9.68539C5.79856 9.97502 5.3893 10.1376 4.96268 10.1376C4.53606 10.1376 4.1268 9.97502 3.82446 9.68539C3.52321 9.39461 3.35405 9.00076 3.35405 8.59017C3.35405 8.17958 3.52321 7.78574 3.82446 7.49495L4.96295 6.39998Z"
+                      fill="currentColor" />
+                    <path
+                      d="M6.85954 3.1146L6.48022 3.47959L7.23885 4.20956L7.61817 3.84457C7.92051 3.55495 8.32977 3.39235 8.75639 3.39235C9.18301 3.39235 9.59227 3.55495 9.89461 3.84457C10.1959 4.13536 10.365 4.52921 10.365 4.9398C10.365 5.35039 10.1959 5.74423 9.89461 6.03502L8.75612 7.12999C8.14825 7.7149 7.08809 7.7149 6.48022 7.12999L6.1009 6.765L5.34227 7.49498L5.72158 7.85997C6.22752 8.34731 6.90138 8.61627 7.61817 8.61627C8.33496 8.61627 9.00882 8.34731 9.51476 7.85997L10.6532 6.765C11.1553 6.28039 11.4372 5.62405 11.4372 4.9398C11.4372 4.25555 11.1553 3.59921 10.6532 3.1146C10.1497 2.63129 9.46759 2.35986 8.75639 2.35986C8.0452 2.35986 7.36303 2.63129 6.85954 3.1146Z"
+                      fill="currentColor" />
+                  </svg>
+                </div>
+              </a>
+              <a href="https://docs.nibross.com/koperasi-multiasa/getting-started/introduction.html" target="_blank"
+                class="flex flex-row gap-2 justify-center items-center border border-tertiary bg-primaryDarker text-tertiary dark:text-tertiaryDarkest dark:hover:text-primary dark:bg-secondaryLighter dark:hover:bg-tertiaryDarkest hover:text-primary hover:bg-tertiaryDarkest px-3 py-2 rounded-lg text-xs cursor-pointer transition-all ease-in-out w-1/2">
+                <div class="font-medium">Details</div>
+                <div>
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M4.02197 6.91753C4.02197 6.81484 4.06437 6.71636 4.13983 6.64374C4.21529 6.57113 4.31764 6.53034 4.42436 6.53034H9.08642L7.35857 4.86853C7.28301 4.79583 7.24057 4.69722 7.24057 4.5944C7.24057 4.49158 7.28301 4.39298 7.35857 4.32027C7.43413 4.24757 7.53661 4.20673 7.64346 4.20673C7.75032 4.20673 7.8528 4.24757 7.92835 4.32027L10.3427 6.6434C10.3802 6.67937 10.4099 6.72209 10.4302 6.76913C10.4505 6.81617 10.4609 6.8666 10.4609 6.91753C10.4609 6.96846 10.4505 7.01888 10.4302 7.06592C10.4099 7.11296 10.3802 7.15569 10.3427 7.19166L7.92835 9.51478C7.8528 9.58748 7.75032 9.62833 7.64346 9.62833C7.53661 9.62833 7.43413 9.58748 7.35857 9.51478C7.28301 9.44208 7.24057 9.34347 7.24057 9.24065C7.24057 9.13783 7.28301 9.03923 7.35857 8.96652L9.08642 7.30472H4.42436C4.31764 7.30472 4.21529 7.26392 4.13983 7.19131C4.06437 7.1187 4.02197 7.02022 4.02197 6.91753Z"
+                      fill="currentColor" />
+                  </svg>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -268,4 +375,10 @@
   </div>
 </template>
 <script setup>
+const runtimeConfig = useRuntimeConfig();
+
+const props = defineProps({
+  isSeeAllProjectsVisible: true,
+})
+
 </script>

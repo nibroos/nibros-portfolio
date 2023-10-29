@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-row gap-1">
     <button @click="copyTextToClipboard" class="hover:underline cursor-pointer">{{ props.textToCopy }}</button>
-    <input ref="textToCopy" :value="props.textToCopy" class="sr-only">
+    <input ref="textToCopy" :value="props.textToCopy" :aria-label="idTextCopy" class="sr-only">
     <div ref="popup" class="hidden text-xs bg-tertiaryDarker text-primary rounded-md px-1 py-0.5 w-max">Text
       Copied!</div>
   </div>
@@ -45,6 +45,8 @@ const copyTextToClipboard = () => {
     }, 2000);
   }
 };
+
+let idTextCopy = 'textCopy' + (Math.random() + 1).toString(36).substring(7);
 </script>
 
 <style scoped>

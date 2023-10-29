@@ -9,8 +9,10 @@
         content="Need a developer? I can offer you a Laravel web apps, Vue.js interfaces, and Nuxt-powered solutions in my portfolio. Explore my projects, including some management apps, and see tech and creativity in action." />
     </Head>
 
-    <div class="flex flex-col gap-12 mt-8 sm:mt-0">
-      <div class="flex flex-col gap-8 text-tertiaryDarker dark:text-primaryDarkest">
+    <div class="flex flex-col gap-12 pb-12 mt-8 sm:mt-0">
+      <LazyMainProjectSectionComponent :isSeeAllProjectsVisible="false" />
+      <LazySideProjectSectionComponent />
+      <!-- <div class="flex flex-col gap-8 text-tertiaryDarker dark:text-primaryDarkest">
         <div class="flex flex-row justify-between">
           <div class="text-2xl font-bold">Main Projects</div>
         </div>
@@ -127,7 +129,7 @@
                 <div class="flex flex-row justify-between">
                   <div class="font-bold">E-SPBU Management</div>
                 </div>
-                <img src="../../assets/images/e-spbu cover.png" class="object-cover rounded-lg"
+                <img src="../../assets/images/espbuCover.png" class="object-cover rounded-lg"
                   alt="E-SPBU Management System">
                 <p class="text-sm"><span class="font-bold">P*rtamina</span> has an application with features that <span
                     class="font-bold">may not fully
@@ -154,7 +156,7 @@
                     </svg>
                   </div>
                 </div>
-                <div
+                <NuxtLink to="/projects/espbu"
                   class="flex flex-row gap-2 justify-center items-center border border-tertiary bg-primaryDarker text-tertiary dark:text-tertiaryDarkest dark:hover:text-primary dark:bg-secondaryLighter dark:hover:bg-tertiaryDarkest hover:text-primary hover:bg-tertiaryDarkest px-3 py-2 rounded-lg text-xs cursor-pointer transition-all ease-in-out w-1/2">
                   <div class="font-medium">Details</div>
                   <div>
@@ -164,7 +166,7 @@
                         fill="currentColor" />
                     </svg>
                   </div>
-                </div>
+                </NuxtLink>
               </div>
             </div>
           </div>
@@ -263,7 +265,7 @@
                 <div class="flex flex-row justify-between">
                   <div class="font-bold">Koperasi Multiasa</div>
                 </div>
-                <img src="../../assets/images/koperasi cover.png" class="object-cover rounded-lg"
+                <img src="../../assets/images/koperasiCover.png" class="object-cover rounded-lg"
                   alt="E-SPBU Management System">
                 <p class="text-sm">
                   In cooperative management, keeping an eye on things is crucial, especially when committee members change
@@ -275,8 +277,9 @@
           </div>
         </div>
 
-      </div>
-      <div class="flex flex-col gap-8 text-tertiaryDarker dark:text-primaryDarkest">
+      </div> -->
+
+      <!-- <div class="flex flex-col gap-8 text-tertiaryDarker dark:text-primaryDarkest">
         <div class="flex flex-row justify-between">
           <div class="text-2xl font-bold">Side Projects</div>
         </div>
@@ -377,7 +380,7 @@
           </div>
         </div>
 
-      </div>
+      </div> -->
     </div>
   </div>
 </template>

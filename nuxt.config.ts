@@ -1,7 +1,23 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: false },
-  css: ['~/assets/css/main.css'],
+  css: [
+    '~/assets/css/main.css',
+    'viewerjs/dist/viewer.css',
+  ],
+  image: {
+    format: ['webp'],
+    screens: {
+      'xs': 320,
+      'sm': 640,
+      'md': 768,
+      'lg': 1024,
+      'xl': 1280,
+      'xxl': 1536,
+      '2xl': 1536
+    },
+    dir: 'assets/images'
+  },
   postcss: {
     plugins: {
       tailwindcss: {},
@@ -10,7 +26,8 @@ export default defineNuxtConfig({
   },
   modules: [
     '@nuxtjs/tailwindcss',
-    '@formkit/auto-animate/nuxt'
+    '@formkit/auto-animate/nuxt',
+    '@nuxt/image',
   ],
   app:{
     rootId: 'nibros',
@@ -25,6 +42,7 @@ export default defineNuxtConfig({
     public: {
       APP_NAME: process.env.APP_NAME,
       BASE_URL: process.env.NUXT_PUBLIC_BASE_URL,
+      DOCS_URL: process.env.DOCS_URL,
     },
   },
 })
