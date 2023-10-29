@@ -34,8 +34,18 @@ export default defineNuxtConfig({
     head:{
       title: 'Nibros Ari Wibowo',
       meta:[
-        { name: 'description', content: 'Portfolio Nibros Ari Wibowo' }
+        { 
+          name: 'description',
+          content: 'Portfolio Nibros Ari Wibowo'
+        }
       ],
+      link:[
+        {
+          rel: 'icon',
+          type: 'image/x-icon',
+          href: 'https://github.com/nibroos/nibros-portfolio/assets/73767596/bd25f0ec-634b-48dd-a30d-c11869f4045b'
+        }
+      ]
     },
   },
   runtimeConfig: {
