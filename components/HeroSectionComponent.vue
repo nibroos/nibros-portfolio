@@ -25,10 +25,11 @@
           View Project Docs
         </a>
         <div>or</div>
-        <div
+        <a href="https://github.com/nibroos/nibros-portfolio/files/13201604/CV_Nibros.Ari.Wibowo_Web.Fullstack_2year.pdf"
+          target="_blank"
           class="font-bold underline hover:decoration-2 underline-offset-8 cursor-pointer hover:decoration-tertiaryDarkest hover:dark:decoration-primary">
           Download Resume
-        </div>
+        </a>
       </div>
       <div class="flex flex-row gap-2">
         <a href="https://github.com/nibroos" target="_blank" aria-label="See more about my Open-Source Github Project"

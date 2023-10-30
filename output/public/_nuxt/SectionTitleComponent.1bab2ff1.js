@@ -1,1 +1,0 @@
-import{o as e,c as o,a as n,t as s}from"./entry.cb897436.js";const c={class:"font-bold text-lg"},a={__name:"SectionTitleComponent",props:{text:String},setup(t){return(_,r)=>(e(),o("div",null,[n("h2",c,s(t.text),1)]))}},i=a;export{i as _};
