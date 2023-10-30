@@ -42,18 +42,21 @@
           <div class="font-normal text-sm">
             <ul>
               <li>
-                <NuxtLink to="/projects/portfolio" class="hover:underline cursor-pointer transition-all ease-in-out">
+                <a href="https://docs.nibross.com/portfolio/getting-started/introduction.html" target="_blank"
+                  class="hover:underline cursor-pointer transition-all ease-in-out">
                   Portfolio
-                </NuxtLink>
+                </a>
               </li>
               <li>
-                <NuxtLink to="/projects/espbu" class="hover:underline cursor-pointer transition-all ease-in-out">E-SPBU
-                </NuxtLink>
+                <a href="https://docs.nibross.com/espbu/getting-started/introduction.html" target="_blank"
+                  class="hover:underline cursor-pointer transition-all ease-in-out">E-SPBU
+                </a>
               </li>
               <li>
-                <NuxtLink to="/projects/koperasi" class="hover:underline cursor-pointer transition-all ease-in-out">
+                <a href="https://docs.nibross.com/koperasi-multiasa/getting-started/introduction.html" target="_blank"
+                  class="hover:underline cursor-pointer transition-all ease-in-out">
                   Koperasi
-                  Multiasa</NuxtLink>
+                  Multiasa</a>
               </li>
             </ul>
           </div>

@@ -36,7 +36,8 @@
             </path>
           </g>
         </svg>
-        <h2 class="text-center text-secondary dark:text-primary text-2xl font-bold mt-6">Memulai aplikasi...</h2>
+        <h1 class="text-center text-secondary dark:text-primary text-2xl font-bold mt-6">Portfolio Nibros Ari Wibowo</h1>
+        <h3 class="text-center text-secondary dark:text-primary text-2xl font-bold mt-6">Memulai aplikasi...</h3>
         <p class="w-full text-center text-zinc-500 dark:text-primary mt-1">Tunggu sebentar, <span
             class="text-secondaryLighter font-semibold">portfolio Nibros Ari Wibowo</span> sedang dimuat.</p>
       </div>
