@@ -42,8 +42,8 @@
         <div class="flex flex-col gap-4 w-5/12 sm:w-full text-secondaryDarker dark:text-primary">
           <div class="font-bold">Highlight Features</div>
           <div class="flex flex-col justify-between h-full sm:gap-4">
-            <div class="flex flex-col gap-2">
-              <ul class="list-disc list-outside pl-4 text-sm sm:hidden">
+            <div class="flex flex-col gap-2 sm:hidden">
+              <ul class="list-disc list-outside pl-4 text-sm">
                 <li>Auth System</li>
                 <li>Roles & Permissions</li>
                 <li>Shift Management</li>
@@ -56,8 +56,8 @@
                 <li>Log Activities</li>
               </ul>
               <div class="flex flex-col gap-1">
-                <div class="text-sm sm:hidden">Status: <span class="font-bold">Production</span></div>
-                <div class="text-sm sm:hidden">Role: <span class="font-bold">Fullstack Dev</span></div>
+                <div class="text-sm">Status: <span class="font-bold">Production</span></div>
+                <div class="text-sm">Role: <span class="font-bold">Fullstack Dev</span></div>
 
                 <div class="text-sm flex flex-row gap-1">
                   <div>Started:</div>
