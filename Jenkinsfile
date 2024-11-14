@@ -27,15 +27,15 @@ pipeline {
                 cleanWs()
                 sshagent(credentials: [SSH_CREDENTIALS_ID]) {
                     sh("mkdir -p ${BUILD_DIR}")
-                    // dir("${BUILD_DIR}") {
-                    //     sh('git clone -b $GIT_BRANCH $GIT_REPO .')
-                    // }
+                    dir("${BUILD_DIR}") {
+                        sh('git clone -b $GIT_BRANCH $GIT_REPO .')
+                    }
 
-                    checkout([
-                        $class: 'GitSCM',
-                        branches: [[name: '*/main']],
-                        userRemoteConfigs: [[url: '$GIT_REPO']]
-                    ])
+                    // checkout([
+                    //     $class: 'GitSCM',
+                    //     branches: [[name: '*/main']],
+                    //     userRemoteConfigs: [[url: $GIT_REPO]]
+                    // ])
                 }
             }
         }
