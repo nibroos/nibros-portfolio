@@ -26,12 +26,6 @@ pipeline {
                     dir("${BUILD_DIR}") {
                         sh('git clone -b $GIT_BRANCH $GIT_REPO .')
                     }
-
-                    // checkout([
-                    //     $class: 'GitSCM',
-                    //     branches: [[name: '*/main']],
-                    //     userRemoteConfigs: [[url: $GIT_REPO]]
-                    // ])
                 }
             }
         }
