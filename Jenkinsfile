@@ -13,15 +13,18 @@ pipeline {
         FRONTEND_URL = credentials('frontend-url-nibros-portfolio')
         DOMAIN = credentials('domain-nibros-portfolio')
         DOCS_URL = credentials('docs-url-nibros-portfolio')
+        SSH_CREDENTIALS_ID = credentials('2dcfa3e4-fa4d-4702-a362-4ace13f87646')
     }
 
     stages {
         stage('Checkout') {
             steps {
                 cleanWs()
-                sh("mkdir -p ${BUILD_DIR}")
-                dir("${BUILD_DIR}") {
-                    sh('git clone ${GIT_REPO} .')
+                sshagent(credentials: [SSH_CREDENTIALS_ID]) {
+                  sh("mkdir -p ${BUILD_DIR}")
+                  dir("${BUILD_DIR}") {
+                      sh('git clone ${GIT_REPO} .')
+                  }
                 }
             }
         }
@@ -45,16 +48,18 @@ pipeline {
         stage('Clean Workspace') {
             steps {
                 dir("${BUILD_DIR}") {
-                    sh('ls -A | grep -v docs | xargs rm -rf')
+                    sh('ls -A | grep -v .output | xargs rm -rf')
                 }
             }
         }
 
         stage('Deploy to VPS') {
             steps {
-                dir("${BUILD_DIR}") {
-                    sh('rsync -avz .output/public/ $VPS_USER@$VPS_HOST:$VPS_DEPLOY_DIR')
-                }
+              sshagent(credentials: [SSH_CREDENTIALS_ID]) {
+                  dir("${BUILD_DIR}") {
+                      sh('rsync -avz .output/public/ $VPS_USER@$VPS_HOST:$VPS_DEPLOY_DIR')
+                  }
+              }
             }
         }
     }
