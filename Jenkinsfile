@@ -17,10 +17,6 @@ pipeline {
         SSH_CREDENTIALS_ID = '2dcfa3e4-fa4d-4702-a362-4ace13f87646'
     }
 
-    triggers {
-        pollSCM('* * * * *') // Polls the SCM every 5 minutes
-    }
-
     stages {
         stage('Checkout') {
             steps {
