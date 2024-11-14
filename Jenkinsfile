@@ -13,7 +13,7 @@ pipeline {
         FRONTEND_URL = credentials('frontend-url-nibros-portfolio')
         DOMAIN = credentials('domain-nibros-portfolio')
         DOCS_URL = credentials('docs-url-nibros-portfolio')
-        SSH_CREDENTIALS_ID = credentials('2dcfa3e4-fa4d-4702-a362-4ace13f87646')
+        SSH_CREDENTIALS_ID = '2dcfa3e4-fa4d-4702-a362-4ace13f87646'
     }
 
     stages {
