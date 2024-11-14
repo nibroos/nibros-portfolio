@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         GIT_REPO = 'git@github.com:nibroos/nibros-portfolio.git'
+        GIT_BRANCH = 'main' // Specify the branch to be polled and cloned
         VPS_USER = credentials('vps-user-27')
         VPS_HOST = credentials('vps-host-27')
         VPS_DEPLOY_DIR = credentials('vps-deploy-dir-nibros-portfolio')
@@ -16,6 +17,10 @@ pipeline {
         SSH_CREDENTIALS_ID = '2dcfa3e4-fa4d-4702-a362-4ace13f87646'
     }
 
+    triggers {
+        pollSCM('H/1 * * * *') // Polls the SCM every 5 minutes
+    }
+
     stages {
         stage('Checkout') {
             steps {
@@ -23,7 +28,7 @@ pipeline {
                 sshagent(credentials: [SSH_CREDENTIALS_ID]) {
                   sh("mkdir -p ${BUILD_DIR}")
                   dir("${BUILD_DIR}") {
-                      sh('git clone ${GIT_REPO} .')
+                      sh('git clone -b $GIT_BRANCH $GIT_REPO .')
                   }
                 }
             }
