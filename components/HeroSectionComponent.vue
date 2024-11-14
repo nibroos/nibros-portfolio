@@ -26,7 +26,7 @@
           View Project Docs
         </a>
         <div>or</div>
-        <a href="https://github.com/nibroos/nibros-portfolio/files/13201604/CV_Nibros.Ari.Wibowo_Web.Fullstack_2year.pdf"
+        <a href="https://docs.google.com/document/d/1l3EzJloX_-Q-9djxdukeJ1qQbhlUDoux/edit?usp=sharing&ouid=107477319991774506746&rtpof=true&sd=true"
           target="_blank"
           class="font-bold underline hover:decoration-2 underline-offset-8 cursor-pointer hover:decoration-tertiaryDarkest hover:dark:decoration-primary">
           Download Resume
