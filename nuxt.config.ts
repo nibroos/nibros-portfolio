@@ -28,18 +28,20 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@formkit/auto-animate/nuxt',
     '@nuxt/image',
+    '@pinia/nuxt',
+    '@pinia-plugin-persistedstate/nuxt',
   ],
-  app:{
+  app: {
     rootId: 'nibros',
-    head:{
+    head: {
       title: 'Nibros Ari Wibowo',
-      meta:[
-        { 
+      meta: [
+        {
           name: 'description',
           content: 'Portfolio Nibros Ari Wibowo'
         }
       ],
-      link:[
+      link: [
         {
           rel: 'icon',
           type: 'image/x-icon',
@@ -53,6 +55,8 @@ export default defineNuxtConfig({
       APP_NAME: process.env.APP_NAME,
       BASE_URL: process.env.NUXT_PUBLIC_BASE_URL,
       DOCS_URL: process.env.DOCS_URL,
+      FRONTEND_URL: process.env.FRONTEND_URL,
+      DOMAIN: process.env.DOMAIN,
     },
   },
 })

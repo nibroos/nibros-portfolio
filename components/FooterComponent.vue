@@ -12,7 +12,8 @@
               </div>
             </div>
           </div>
-          <div class="font-normal text-sm">Feel free to reach out to me any time. I prefer to talk over email, especially
+          <div class="font-normal text-sm">Feel free to reach out to me any time. I prefer to talk over email,
+            especially
             since we
             may be a few time zones away.</div>
 
@@ -42,18 +43,18 @@
           <div class="font-normal text-sm">
             <ul>
               <li>
-                <a href="https://docs.nibross.com/portfolio/getting-started/introduction.html" target="_blank"
+                <a :href="`${envValue.docs_url}/portfolio/getting-started/introduction.html`" target="_blank"
                   class="hover:underline cursor-pointer transition-all ease-in-out">
                   Portfolio
                 </a>
               </li>
               <li>
-                <a href="https://docs.nibross.com/espbu/getting-started/introduction.html" target="_blank"
+                <a :href="`${envValue.docs_url}/espbu/getting-started/introduction.html`" target="_blank"
                   class="hover:underline cursor-pointer transition-all ease-in-out">E-SPBU
                 </a>
               </li>
               <li>
-                <a href="https://docs.nibross.com/koperasi-multiasa/getting-started/introduction.html" target="_blank"
+                <a :href="`${envValue.docs_url}/koperasi-multiasa/getting-started/introduction.html`" target="_blank"
                   class="hover:underline cursor-pointer transition-all ease-in-out">
                   Koperasi
                   Multiasa</a>
@@ -115,4 +116,8 @@
   </div>
 </template>
 <script setup>
+
+await useEnvStore().getValue()
+const envValue = ref(useEnvStore().env)
+
 </script>

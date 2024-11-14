@@ -44,7 +44,7 @@
               class="hidden border-b-4 rounded-lg border-secondary dark:border-primary w-4 h-1"></div>
           </div>
         </NuxtLink>
-        <a href="https://docs.nibross.com" target="_blank"
+        <a :href="envValue.docs_url" target="_blank"
           class="font-bold dark:text-secondaryLighter dark:hover:text-secondaryLighter hover:text-secondary cursor-pointer transition-all ease-in-out hidden sm:flex sm:w-1/3 sm:justify-center sm:flex-col sm:items-center">
           <div>
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 20 20">
@@ -60,7 +60,7 @@
         <div v-auto-animate
           class="flex flex-row sm:justify-center gap-4 items-center text-secondaryLighter dark:text-secondaryLighter sm:w-1/3">
 
-          <a href="https://docs.nibross.com" target="_blank"
+          <a :href="envValue.docs_url" target="_blank"
             class="font-bold dark:hover:text-primary hover:text-secondary decoration-secondary dark:decoration-primary cursor-pointer hover:underline hover:decoration-4 underline-offset-8 transition-all ease-in-out sm:hidden">Docs</a>
           <NuxtLink to="/projects"
             :class="{ '!underline text-secondary dark:text-primary decoration-4 underline-offse8 decoration-secondary dark:decoration-primary': projectsPath.includes(route.path) }"
@@ -172,4 +172,8 @@ const projectsPath = [
   '/projects',
   '/projects/espbu',
 ]
+
+await useEnvStore().getValue()
+const envValue = ref(useEnvStore().env)
+
 </script>

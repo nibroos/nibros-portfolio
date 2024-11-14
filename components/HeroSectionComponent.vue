@@ -11,7 +11,8 @@
         <p class="text-tertiaryDarker dark:text-primaryDarkest">With <span class="font-bold">almost 2 years</span> of
           development
           experience using
-          <span class="font-bold">Laravel</span> and <span class="font-bold">Vue</span>, I believe I can contribute to get
+          <span class="font-bold">Laravel</span> and <span class="font-bold">Vue</span>, I believe I can contribute to
+          get
           the best quality of your projects. You're welcome to test
           applications I've worked on in the past, <span class="font-bold">Rate me</span> based on those projects, <span
             class="font-bold">then we can talk!</span>
@@ -20,7 +21,7 @@
 
       <div class="flex flex-row font-light text-lg w-full gap-3 xs:flex-col xs:gap-0">
         <div class="font-bold xs:hidden">&gt;</div>
-        <a href="https://docs.nibross.com" target="_blank" aria-label="See more about my Projects Documentation"
+        <a :href="envValue.docs_url" target="_blank" aria-label="See more about my Projects Documentation"
           class="font-bold underline hover:decoration-2 underline-offset-8 cursor-pointer hover:decoration-tertiaryDarkest hover:dark:decoration-primary">
           View Project Docs
         </a>
@@ -198,4 +199,8 @@
   </div>
 </template>
 <script setup>
+
+await useEnvStore().getValue()
+const envValue = ref(useEnvStore().env)
+
 </script>

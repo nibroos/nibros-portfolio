@@ -30,7 +30,13 @@
 
 <script setup>
 
+import { useEnvStore } from './stores/envStore';
+
 const layout = ref('')
+
+onMounted(async () => {
+  await useEnvStore().getValue()
+})
 
 onMounted(() => {
   layout.value = 'defaultlayout'

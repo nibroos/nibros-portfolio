@@ -10,7 +10,7 @@
         class="flex flex-row sm:flex-col-reverse rounded-lg bg-secondaryLighter bg-opacity-50 border border-secondary dark:border-secondaryLighter p-4 gap-2 sm:gap-4">
 
         <div class="w-full gap-2 justify-between hidden sm:flex flex-row">
-          <a href="https://nibross.com" target="_blank"
+          <a :href="envValue.frontend_url" target="_blank"
             class="flex flex-row gap-2 justify-center items-center bg-tertiary hover:bg-tertiaryDarkest text-primary px-3 py-2 rounded-lg text-xs cursor-pointer transition-all ease-in-out w-1/2">
             <div>Live Demo</div>
             <div>
@@ -24,7 +24,7 @@
               </svg>
             </div>
           </a>
-          <a href="https://docs.nibross.com/portfolio/getting-started/introduction.html" target="_blank"
+          <a :href="`${envValue.docs_url}/portfolio/getting-started/introduction.html`" target="_blank"
             class="flex flex-row gap-2 justify-center items-center border border-tertiary bg-primaryDarker text-tertiary dark:text-tertiaryDarkest dark:hover:text-primary dark:bg-secondaryLighter dark:hover:bg-tertiaryDarkest hover:text-primary hover:bg-tertiaryDarkest px-3 py-2 rounded-lg text-xs cursor-pointer transition-all ease-in-out w-1/2">
             <div class="font-medium">Details</div>
             <div>
@@ -108,7 +108,8 @@
                 <a href="https://github.com/nibroos/nibros-portfolio" target="_blank"
                   aria-label="See more about Portfolio Project"
                   class="cursor-pointer text-secondary dark:text-secondaryLighter hover:text-tertiaryDarker dark:hover:text-primaryDarkest transition-all ">
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd"
                       d="M12 0C5.37 0 0 5.37 0 12C0 17.31 3.435 21.795 8.205 23.385C8.805 23.49 9.03 23.13 9.03 22.815C9.03 22.53 9.015 21.585 9.015 20.58C6 21.135 5.22 19.845 4.98 19.17C4.845 18.825 4.26 17.76 3.75 17.475C3.33 17.25 2.73 16.695 3.735 16.68C4.68 16.665 5.355 17.55 5.58 17.91C6.66 19.725 8.385 19.215 9.075 18.9C9.18 18.12 9.495 17.595 9.84 17.295C7.17 16.995 4.38 15.96 4.38 11.37C4.38 10.065 4.845 8.985 5.61 8.145C5.49 7.845 5.07 6.615 5.73 4.965C5.73 4.965 6.735 4.65 9.03 6.195C9.99 5.925 11.01 5.79 12.03 5.79C13.05 5.79 14.07 5.925 15.03 6.195C17.325 4.635 18.33 4.965 18.33 4.965C18.99 6.615 18.57 7.845 18.45 8.145C19.215 8.985 19.68 10.05 19.68 11.37C19.68 15.975 16.875 16.995 14.205 17.295C14.64 17.67 15.015 18.39 15.015 19.515C15.015 21.12 15 22.41 15 22.815C15 23.13 15.225 23.505 15.825 23.385C18.2072 22.5807 20.2772 21.0497 21.7437 19.0074C23.2101 16.965 23.9993 14.5143 24 12C24 5.37 18.63 0 12 0Z"
                       fill="currentColor" />
@@ -126,7 +127,7 @@
             </p>
           </div>
           <div class="flex flex-row w-full gap-2 justify-between sm:hidden">
-            <a href="https://nibross.com" target="_blank"
+            <a :href="envValue.frontend_url" target="_blank"
               class="flex flex-row gap-2 justify-center items-center bg-tertiary hover:bg-tertiaryDarkest text-primary px-3 py-2 rounded-lg text-xs cursor-pointer transition-all ease-in-out w-1/2">
               <div>Live Demo</div>
               <div>
@@ -140,7 +141,7 @@
                 </svg>
               </div>
             </a>
-            <a href="https://docs.nibross.com/portfolio/getting-started/introduction.html" target="_blank"
+            <a :href="`${envValue.docs_url}/portfolio/getting-started/introduction.html`" target="_blank"
               class="flex flex-row gap-2 justify-center items-center border border-tertiary bg-primaryDarker text-tertiary dark:text-tertiaryDarkest dark:hover:text-primary dark:bg-secondaryLighter dark:hover:bg-tertiaryDarkest hover:text-primary hover:bg-tertiaryDarkest px-3 py-2 rounded-lg text-xs cursor-pointer transition-all ease-in-out w-1/2">
               <div class="font-medium">Details</div>
               <div>
@@ -159,5 +160,8 @@
   </div>
 </template>
 <script setup>
-const runtimeConfig = useRuntimeConfig();
+
+await useEnvStore().getValue()
+const envValue = ref(useEnvStore().env)
+
 </script>
