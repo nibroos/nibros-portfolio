@@ -172,7 +172,7 @@
               loading="lazy" class="object-cover rounded-lg" /> -->
             <p class="text-sm">
               D-ERP System is a comprehensive ERP system that is designed to manage the company's business processes
-              effectively and efficiently. This system is built using the Nuxt.js framework with the Vue.js library.
+              effectively and efficiently. This system is built using the Nuxt.js framework.
             </p>
           </div>
           <div class="flex w-full gap-2 justify-between sm:hidden">
