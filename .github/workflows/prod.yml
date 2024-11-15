@@ -29,8 +29,7 @@ jobs:
         username: ${{ secrets.VPS_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          cd ${{ secrets.VPS_DEPLOY_DIR }}
-          cd ../
+          cd /var/www
           mkdir -p ${{ env.BUILD_DIR }}
           cd ${{ env.BUILD_DIR }}
           git clone ${{ env.GIT_REPO }} -b ${{ env.GIT_BRANCH }}
@@ -45,8 +44,7 @@ jobs:
           curl -fsSL https://bun.sh/install | bash && \
           ln -s $HOME/.bun/bin/bun /usr/local/bin/bun
 
-          cd ${{ env.VPS_DEPLOY_DIR }}
-          cd ../
+          cd /var/www
           cd ${{ env.BUILD_DIR }}
           bun install
     
@@ -59,11 +57,9 @@ jobs:
         script: |
           export BUN_INSTALL="$HOME/.bun" 
           export PATH="$BUN_INSTALL/bin:$PATH"
-          cd ${{ env.VPS_DEPLOY_DIR }}
-          cd ../
+          cd /var/www
           cd ${{ env.BUILD_DIR }}
           bun run generate
-          # remove all files except .output/public and cut it to ${{ env.BUILD_DIR }}
           ls -A | grep -v .output | xargs rm -rf
           mv .output/public/* ./
 
