@@ -39,14 +39,12 @@ jobs:
         username: ${{ secrets.VPS_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          export BUN_INSTALL="$HOME/.bun" 
-          export PATH="$BUN_INSTALL/bin:$PATH"
+          curl -fsSL https://bun.sh/install | bash && \
+          ln -s $HOME/.bun/bin/bun /usr/local/bin/bun
 
           cd ../${{ env.VPS_DEPLOY_DIR }}
           mkdir -p ${{ env.BUILD_DIR }}
           cd ${{ env.BUILD_DIR }}
-          pwd
-          ls -A
           bun install
     
     - name: Generate static files
