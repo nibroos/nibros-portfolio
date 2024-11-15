@@ -57,7 +57,7 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
           cd ${{ env.VPS_DEPLOY_DIR }}
-          rsync -avz .output/public/ $VPS_USER@$VPS_HOST:$VPS_DEPLOY_DIR
+          rsync -avz .output/public/ ${{secrets.VPS_USER}}@${{secrets.VPS_HOST}}:${{secrets.VPS_DEPLOY_DIR}}
 
     - name: Clean up
       run: rm -rf ${{ env.BUILD_DIR }}
