@@ -50,13 +50,22 @@ jobs:
       working-directory: ${{ env.BUILD_DIR }}
 
     - name: Deploy to VPS
-      uses: appleboy/ssh-action@v0.1.3
-      with:
-        host: ${{ env.VPS_HOST }}
-        username: ${{ secrets.VPS_USER }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script: |
-          rsync -avz -e "ssh -o StrictHostKeyChecking=no -i ${{ secrets.SSH_PRIVATE_KEY }}" .output/public/ ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:${{ secrets.VPS_DEPLOY_DIR }}
+      env:
+        VPS_USER: ${{ secrets.VPS_USER }}
+        VPS_HOST: ${{ secrets.VPS_HOST }}
+        VPS_DEPLOY_DIR: ${{ secrets.VPS_DEPLOY_DIR }}
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      run: |
+        # Setup SSH
+        mkdir -p ~/.ssh
+        echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+
+        # Copy files to VPS
+        scp -r ${{ env.BUILD_DIR }}/* ${{secrets.VPS_USER}}@${{secrets.VPS_HOST}}:${{secrets.VPS_DEPLOY_DIR}}
+
+        # Restart application on VPS
+        ssh -o StrictHostKeyChecking=no ${{secrets.VPS_USER}}@${{secrets.VPS_HOST}} "cd ${{secrets.VPS_DEPLOY_DIR}} && ./restart.sh"
 
     - name: Clean up
       run: rm -rf ${{ env.BUILD_DIR }}
