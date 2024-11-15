@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         GIT_REPO = 'git@github.com:nibroos/nibros-portfolio.git'
-        GIT_BRANCH = 'main' // Specify the branch to be polled and cloned
+        GIT_BRANCH = 'master' // Specify the branch to be polled and cloned
         VPS_USER = credentials('vps-user-27')
         VPS_HOST = credentials('vps-host-27')
         VPS_DEPLOY_DIR = credentials('vps-deploy-dir-nibros-portfolio')
@@ -26,12 +26,6 @@ pipeline {
                     dir("${BUILD_DIR}") {
                         sh('git clone -b $GIT_BRANCH $GIT_REPO .')
                     }
-
-                    // checkout([
-                    //     $class: 'GitSCM',
-                    //     branches: [[name: '*/main']],
-                    //     userRemoteConfigs: [[url: $GIT_REPO]]
-                    // ])
                 }
             }
         }
