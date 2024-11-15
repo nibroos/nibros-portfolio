@@ -21,15 +21,15 @@ jobs:
     - name: Setup SSH for Git
       run: |
         mkdir -p ~/.ssh
-        echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' > ~/.ssh/nibros_do_server
+        chmod 600 ~/.ssh/nibros_do_server
         ssh-keyscan -H github.com >> ~/.ssh/known_hosts
 
     - name: Setup SSH for VPS
       run: |
         mkdir -p ~/.ssh
-        echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' > ~/.ssh/id_rsa_vps
-        chmod 600 ~/.ssh/id_rsa_vps
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' > ~/.ssh/nibros_do_server
+        chmod 600 ~/.ssh/nibros_do_server
         ssh-keyscan -H "${{ secrets.VPS_HOST }}" >> ~/.ssh/known_hosts
 
     - name: Clone repository on VPS
@@ -41,7 +41,7 @@ jobs:
         script: |
           mkdir -p ${{ env.TEMP_BUILD_DIR }}
           cd ${{ env.TEMP_BUILD_DIR }}
-          GIT_SSH_COMMAND='ssh -i ~/.ssh/id_rsa_vps' git clone ${{ env.GIT_REPO }} -b ${{ env.GIT_BRANCH }} .
+          GIT_SSH_COMMAND='ssh -i ~/.ssh/nibros_do_server' git clone ${{ env.GIT_REPO }} -b ${{ env.GIT_BRANCH }} .
 
     - name: Install packages
       uses: appleboy/ssh-action@master
