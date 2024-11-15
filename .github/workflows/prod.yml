@@ -40,10 +40,15 @@ jobs:
       run: bun install
 
     - name: Generate static files
-      run: bun run generate
+      run: |
+        bun run generate
+        # check current directory location
+        pwd
+        # check the content of the current directory
+        ls -A
 
-    - name: Clean workspace
-      run: ls -A | grep -v .output | xargs rm -rf
+    # - name: Clean workspace
+    #   run: ls -A | grep -v .output | xargs rm -rf
 
     - name: Deploy to VPS
       env:
