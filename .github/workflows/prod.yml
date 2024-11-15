@@ -37,25 +37,14 @@ jobs:
       run: mkdir -p ${{ env.BUILD_DIR }}
 
     - name: Install dependencies
-      run: |
-        cd ${{ env.BUILD_DIR }}
-        bun install
+      run: bun install
 
     - name: Generate static files
-      run: |
-        cd ${{ env.BUILD_DIR }}
-        bun run generate
+      run: bun run generate
 
     - name: Clean workspace
-      run: |
-        cd ${{ env.BUILD_DIR }}
-        ls -A | grep -v .output | xargs rm -rf
+      run: ls -A | grep -v .output | xargs rm -rf
 
-    - name: Verify build directory
-      run: |
-        echo "Checking contents of ${{ env.BUILD_DIR }}"
-        ls -R ${{ env.BUILD_DIR }}
-        
     - name: Deploy to VPS
       env:
         VPS_USER: ${{ secrets.VPS_USER }}
@@ -72,7 +61,7 @@ jobs:
         ssh-keyscan -H "$VPS_HOST" >> ~/.ssh/known_hosts
 
         # Copy files to VPS
-        scp -r ${{ env.BUILD_DIR }}/* $VPS_USER@$VPS_HOST:$VPS_DEPLOY_DIR
+        scp -r ./* $VPS_USER@$VPS_HOST:$VPS_DEPLOY_DIR
 
     - name: Clean up
       run: rm -rf ${{ env.BUILD_DIR }}
