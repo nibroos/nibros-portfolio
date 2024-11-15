@@ -63,12 +63,12 @@ jobs:
 
         # Add VPS to known_hosts to avoid host verification issues
         ssh-keyscan -H "$VPS_HOST" >> ~/.ssh/known_hosts
-        
+
         # Copy files to VPS
-        scp -r ${{ env.BUILD_DIR }}/* ${{secrets.VPS_USER}}@${{secrets.VPS_HOST}}:${{secrets.VPS_DEPLOY_DIR}}
+        scp -r ${{ env.BUILD_DIR }}/* $VPS_USER@$VPS_HOST:$VPS_DEPLOY_DIR
 
         # Restart application on VPS
-        ssh -o StrictHostKeyChecking=no ${{secrets.VPS_USER}}@${{secrets.VPS_HOST}} "cd ${{secrets.VPS_DEPLOY_DIR}} && ./restart.sh"
+        ssh $VPS_USER@$VPS_HOST "cd $VPS_DEPLOY_DIR && ./restart.sh"
 
     - name: Clean up
       run: rm -rf ${{ env.BUILD_DIR }}
