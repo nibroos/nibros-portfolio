@@ -42,6 +42,8 @@ jobs:
           cd ../${{ env.VPS_DEPLOY_DIR }}
           mkdir -p ${{ env.BUILD_DIR }}
           cd ${{ env.BUILD_DIR }}
+          pwd
+          ls -A
           bun install
     
     - name: Generate static files
