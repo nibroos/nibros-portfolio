@@ -64,7 +64,7 @@ jobs:
         script: |
           cd ${{ env.TEMP_BUILD_DIR }}
           bun run generate
-          find . -mindepth 1 ! -regex '^./.output/public\(/.*\)?' -delete
+          ls -A | grep -v .output | xargs rm -rf
           mv .output/public/* ./
 
     # - name: Deploy to production
@@ -88,3 +88,4 @@ jobs:
           mkdir -p gh-builds
           mv ${{ env.TEMP_BUILD_DIR }} gh-builds/${{ github.run_id }}
           rm -rf gh-builds/{{ github.run_id }}/*
+          rm -rf ${{ env.TEMP_BUILD_DIR }}
