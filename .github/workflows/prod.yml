@@ -49,11 +49,11 @@ jobs:
       uses: appleboy/ssh-action@v0.1.3
       with:
         host: ${{ env.VPS_HOST }}
-        username: ${{ env.VPS_USER }}
+        username: ${{ secrets.VPS_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
+          cd ${{ env.VPS_DEPLOY_DIR }}
           rsync -avz .output/public/ $VPS_USER@$VPS_HOST:$VPS_DEPLOY_DIR
-      working-directory: ${{ env.BUILD_DIR }}
 
     - name: Clean up
       run: rm -rf ${{ env.BUILD_DIR }}
