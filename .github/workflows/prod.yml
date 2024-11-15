@@ -23,45 +23,48 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.VPS_HOST }}
-        username: ${{ secrets.VPS_USER }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script: |
-          cd /var/www
-          mkdir -p ${{ env.BUILD_DIR }}
-          cd ${{ env.BUILD_DIR }}
-          git clone ${{ env.GIT_REPO }} -b ${{ env.GIT_BRANCH }}
+      env:
+        VPS_USER: ${{ secrets.VPS_USER }}
+        VPS_HOST: ${{ secrets.VPS_HOST }}
+        VPS_DEPLOY_DIR: ${{ secrets.VPS_DEPLOY_DIR }}
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      run: |
+        ssh-keyscan -H "$VPS_HOST" >> ~/.ssh/known_hosts
+        cd /var/www
+        mkdir -p ${{ env.BUILD_DIR }}
+        cd ${{ env.BUILD_DIR }}
+        git clone ${{ env.GIT_REPO }} -b ${{ env.GIT_BRANCH }}
 
     - name: Install packages
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.VPS_HOST }}
-        username: ${{ secrets.VPS_USER }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script: |
-          curl -fsSL https://bun.sh/install | bash && \
-          ln -s $HOME/.bun/bin/bun /usr/local/bin/bun
+      env:
+        VPS_USER: ${{ secrets.VPS_USER }}
+        VPS_HOST: ${{ secrets.VPS_HOST }}
+        VPS_DEPLOY_DIR: ${{ secrets.VPS_DEPLOY_DIR }}
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      run: |
+        ssh-keyscan -H "$VPS_HOST" >> ~/.ssh/known_hosts
+        curl -fsSL https://bun.sh/install | bash && \
+        ln -s $HOME/.bun/bin/bun /usr/local/bin/bun
 
-          cd /var/www
-          cd ${{ env.BUILD_DIR }}
-          bun install
+        cd /var/www
+        cd ${{ env.BUILD_DIR }}
+        bun install
     
     - name: Generate static files
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.VPS_HOST }}
-        username: ${{ secrets.VPS_USER }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script: |
-          export BUN_INSTALL="$HOME/.bun" 
-          export PATH="$BUN_INSTALL/bin:$PATH"
-          cd /var/www
-          cd ${{ env.BUILD_DIR }}
-          bun run generate
-          ls -A | grep -v .output | xargs rm -rf
-          mv .output/public/* ./
+      env:
+        VPS_USER: ${{ secrets.VPS_USER }}
+        VPS_HOST: ${{ secrets.VPS_HOST }}
+        VPS_DEPLOY_DIR: ${{ secrets.VPS_DEPLOY_DIR }}
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      run: |
+        ssh-keyscan -H "$VPS_HOST" >> ~/.ssh/known_hosts
+        export BUN_INSTALL="$HOME/.bun" 
+        export PATH="$BUN_INSTALL/bin:$PATH"
+        cd /var/www
+        cd ${{ env.BUILD_DIR }}
+        bun run generate
+        ls -A | grep -v .output | xargs rm -rf
+        mv .output/public/* ./
 
     - name: Copy to production
       uses: appleboy/ssh-action@master
