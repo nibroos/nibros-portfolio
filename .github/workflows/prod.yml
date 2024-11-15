@@ -61,6 +61,9 @@ jobs:
         echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
 
+        # Add VPS to known_hosts to avoid host verification issues
+        ssh-keyscan -H "$VPS_HOST" >> ~/.ssh/known_hosts
+        
         # Copy files to VPS
         scp -r ${{ env.BUILD_DIR }}/* ${{secrets.VPS_USER}}@${{secrets.VPS_HOST}}:${{secrets.VPS_DEPLOY_DIR}}
 
