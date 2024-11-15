@@ -3,7 +3,7 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
@@ -11,15 +11,15 @@ jobs:
 
     env:
       GIT_REPO: 'git@github.com:nibroos/nibros-portfolio.git'
-      GIT_BRANCH: 'main'
+      GIT_BRANCH: 'master'
       BUILD_DIR: 'build-${{ github.run_id }}'
       VPS_USER: ${{ secrets.VPS_USER }}
       VPS_HOST: ${{ secrets.VPS_HOST }}
       VPS_DEPLOY_DIR: ${{ secrets.VPS_DEPLOY_DIR }}
-      APP_NAME: ${{ secrets.APP_NAME }}
-      FRONTEND_URL: ${{ secrets.FRONTEND_URL }}
-      DOMAIN: ${{ secrets.DOMAIN }}
-      DOCS_URL: ${{ secrets.DOCS_URL }}
+      APP_NAME: ${{ env.APP_NAME }}
+      FRONTEND_URL: ${{ env.FRONTEND_URL }}
+      DOMAIN: ${{ env.DOMAIN }}
+      DOCS_URL: ${{ env.DOCS_URL }}
 
     steps:
     - name: Checkout code
