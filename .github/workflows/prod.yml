@@ -29,6 +29,14 @@ jobs:
         username: ${{ secrets.VPS_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
+          # Setup SSH
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/nibros_do_server_test
+          chmod 600 ~/.ssh/nibros_do_server_test
+
+          # Add VPS to known_hosts to avoid host verification issues
+          ssh-keyscan -H "$VPS_HOST" >> ~/.ssh/known_hosts
+
           cd /var/www
           mkdir -p ${{ env.BUILD_DIR }}
           cd ${{ env.BUILD_DIR }}
