@@ -23,14 +23,16 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: appleboy/ssh-action@master
       with:
-        ref: ${{ env.GIT_BRANCH }}
+        host: ${{ secrets.VPS_HOST }}
+        username: ${{ secrets.VPS_USER }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          cd ${{ env.BUILD_DIR }}
-          git clone ${{ env.GIT_REPO }}
-          pwd
-          ls -A
+          cd ${{ secrets.VPS_DEPLOY_DIR }}
+          cd ../
+          mkdir -p ${{ env.BUILD_DIR }}
+          git clone ${{ env.GIT_REPO }} -b ${{ env.GIT_BRANCH }}
 
     - name: Install packages
       uses: appleboy/ssh-action@master
@@ -42,8 +44,8 @@ jobs:
           curl -fsSL https://bun.sh/install | bash && \
           ln -s $HOME/.bun/bin/bun /usr/local/bin/bun
 
-          cd ../${{ env.VPS_DEPLOY_DIR }}
-          mkdir -p ${{ env.BUILD_DIR }}
+          cd ${{ env.VPS_DEPLOY_DIR }}
+          cd ../
           cd ${{ env.BUILD_DIR }}
           bun install
     
@@ -56,9 +58,13 @@ jobs:
         script: |
           export BUN_INSTALL="$HOME/.bun" 
           export PATH="$BUN_INSTALL/bin:$PATH"
-          cd ../${{ env.VPS_DEPLOY_DIR }}
+          cd ${{ env.VPS_DEPLOY_DIR }}
+          cd ../
           cd ${{ env.BUILD_DIR }}
           bun run generate
+          # remove all files except .output/public and cut it to ${{ env.BUILD_DIR }}
+          ls -A | grep -v .output | xargs rm -rf
+          mv .output/public/* ./
 
     - name: Copy to production
       uses: appleboy/ssh-action@master
@@ -67,8 +73,10 @@ jobs:
         username: ${{ secrets.VPS_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          cd ../${{ env.VPS_DEPLOY_DIR }}
-          cp -r ${{ env.BUILD_DIR }}/* .
+          cd ${{ env.VPS_DEPLOY_DIR }}
+          cd ../
+          rm -rf ${{ secrets.VPS_DEPLOY_DIR }}/*
+          cp -r ${{ env.BUILD_DIR }}/* ${{ secrets.VPS_DEPLOY_DIR }}
 
     - name: Remove build directory
       run: |
