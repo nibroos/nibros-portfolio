@@ -32,6 +32,7 @@ jobs:
           cd ${{ secrets.VPS_DEPLOY_DIR }}
           cd ../
           mkdir -p ${{ env.BUILD_DIR }}
+          cd ${{ env.BUILD_DIR }}
           git clone ${{ env.GIT_REPO }} -b ${{ env.GIT_BRANCH }}
 
     - name: Install packages
