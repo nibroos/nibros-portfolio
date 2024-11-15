@@ -67,15 +67,15 @@ jobs:
           find . -mindepth 1 ! -regex '^./.output/public\(/.*\)?' -delete
           mv .output/public/* ./
 
-    - name: Deploy to production
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.VPS_HOST }}
-        username: ${{ secrets.VPS_USER }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script: |
-          rm -rf ${{ secrets.VPS_DEPLOY_DIR }}/*
-          cp -r ${{ env.TEMP_BUILD_DIR }}/* ${{ secrets.VPS_DEPLOY_DIR }}
+    # - name: Deploy to production
+    #   uses: appleboy/ssh-action@master
+    #   with:
+    #     host: ${{ secrets.VPS_HOST }}
+    #     username: ${{ secrets.VPS_USER }}
+    #     key: ${{ secrets.SSH_PRIVATE_KEY }}
+    #     script: |
+    #       rm -rf ${{ secrets.VPS_DEPLOY_DIR }}/*
+    #       cp -r ${{ env.TEMP_BUILD_DIR }}/* ${{ secrets.VPS_DEPLOY_DIR }}
 
     - name: Clean up build directory
       uses: appleboy/ssh-action@master
@@ -84,4 +84,7 @@ jobs:
         username: ${{ secrets.VPS_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          rm -rf ${{ env.TEMP_BUILD_DIR }}
+          # rm -rf ${{ env.TEMP_BUILD_DIR }}
+          mkdir -p gh-builds
+          mv ${{ env.TEMP_BUILD_DIR }} gh-builds/${{ github.run_id }}
+          rm -rf gh-builds/{{ github.run_id }}/*
