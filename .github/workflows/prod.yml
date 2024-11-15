@@ -12,35 +12,29 @@ jobs:
     env:
       GIT_REPO: 'git@github.com:nibroos/nibros-portfolio.git'
       GIT_BRANCH: 'master'
-      BUILD_DIR: 'build-${{ github.run_id }}'
-      # VPS_USER: ${{ secrets.VPS_USER }}
-      # VPS_HOST: ${{ secrets.VPS_HOST }}
-      # VPS_DEPLOY_DIR: ${{ secrets.VPS_DEPLOY_DIR }}
-      # APP_NAME: ${{ env.APP_NAME }}
-      # FRONTEND_URL: ${{ env.FRONTEND_URL }}
-      # DOMAIN: ${{ env.DOMAIN }}
-      # DOCS_URL: ${{ env.DOCS_URL }}
+      TEMP_BUILD_DIR: '/var/www/tempbuild-${{ github.run_id }}'
 
     steps:
     - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup SSH
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan -H "${{ secrets.VPS_HOST }}" >> ~/.ssh/known_hosts
+
+    - name: Clone repository on VPS
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.VPS_HOST }}
         username: ${{ secrets.VPS_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          # Setup SSH
-          mkdir -p ~/.ssh
-          echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/nibros_do_server_test
-          chmod 600 ~/.ssh/nibros_do_server_test
-
-          # Add VPS to known_hosts to avoid host verification issues
-          ssh-keyscan -H "$VPS_HOST" >> ~/.ssh/known_hosts
-
-          cd /var/www
-          mkdir -p ${{ env.BUILD_DIR }}
-          cd ${{ env.BUILD_DIR }}
-          git clone ${{ env.GIT_REPO }} -b ${{ env.GIT_BRANCH }}
+          mkdir -p ${{ env.TEMP_BUILD_DIR }}
+          cd ${{ env.TEMP_BUILD_DIR }}
+          git clone ${{ env.GIT_REPO }} -b ${{ env.GIT_BRANCH }} .
 
     - name: Install packages
       uses: appleboy/ssh-action@master
@@ -51,10 +45,9 @@ jobs:
         script: |
           curl -fsSL https://bun.sh/install | bash && \
           ln -s $HOME/.bun/bin/bun /usr/local/bin/bun
-
-          cd /var/www/${{ env.BUILD_DIR }}
+          cd ${{ env.TEMP_BUILD_DIR }}
           bun install
-    
+
     - name: Generate static files
       uses: appleboy/ssh-action@master
       with:
@@ -62,23 +55,26 @@ jobs:
         username: ${{ secrets.VPS_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          cd /var/www/${{ env.BUILD_DIR }}
+          cd ${{ env.TEMP_BUILD_DIR }}
           bun run generate
-          ls -A | grep -v .output | xargs rm -rf
+          find . -mindepth 1 ! -regex '^./.output/public\(/.*\)?' -delete
           mv .output/public/* ./
 
-    - name: Copy to production
+    - name: Deploy to production
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.VPS_HOST }}
         username: ${{ secrets.VPS_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          cd ${{ env.VPS_DEPLOY_DIR }}
-          cd ../
           rm -rf ${{ secrets.VPS_DEPLOY_DIR }}/*
-          cp -r ${{ env.BUILD_DIR }}/* ${{ secrets.VPS_DEPLOY_DIR }}
+          cp -r ${{ env.TEMP_BUILD_DIR }}/* ${{ secrets.VPS_DEPLOY_DIR }}
 
-    - name: Remove build directory
-      run: |
-        rm -rf ${{ env.BUILD_DIR }}
+    - name: Clean up build directory
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.VPS_HOST }}
+        username: ${{ secrets.VPS_USER }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          rm -rf ${{ env.TEMP_BUILD_DIR }}
