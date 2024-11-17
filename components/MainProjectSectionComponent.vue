@@ -154,7 +154,7 @@
                 </svg>
               </div>
               <div class="dark:rounded-full w-max dark:bg-tertiaryDarker dark:p-2">
-                <img src="../linux.svg" alt="linux" class="w-[26px] h-[26px]" />
+                <img src="/icons/linux.svg" alt="linux" class="w-[26px] h-[26px]" />
 
               </div>
               <div class="dark:rounded-full w-max dark:bg-tertiaryDarker dark:p-2">
@@ -202,7 +202,7 @@
             <!-- <picture>
               <source srcset="../assets/images/espbuCover.png 480w, ../assets/images/espbuCover.png 800w"
                 sizes="(max-width: 600px) 480px, 800px" type="image/webp" />
-              <img src="../assets/images/espbuCover.png" alt="Description" sizes="(max-width: 600px) 480px, 800px" />
+              <img src="/icons/assets/images/espbuCover.png" alt="Description" sizes="(max-width: 600px) 480px, 800px" />
             </picture> -->
             <picture>
               <source type="image/webp" srcset="
@@ -396,7 +396,7 @@
             <!-- <picture>
               <source srcset="../assets/images/espbuCover.png 480w, ../assets/images/espbuCover.png 800w"
                 sizes="(max-width: 600px) 480px, 800px" type="image/webp" />
-              <img src="../assets/images/espbuCover.png" alt="Description" sizes="(max-width: 600px) 480px, 800px" />
+              <img src="/icons/assets/images/espbuCover.png" alt="Description" sizes="(max-width: 600px) 480px, 800px" />
             </picture> -->
             <picture>
               <source type="image/webp" srcset="
@@ -583,7 +583,7 @@
             <!-- <picture>
               <source srcset="../assets/images/espbuCover.png 480w, ../assets/images/espbuCover.png 800w"
                 sizes="(max-width: 600px) 480px, 800px" type="image/webp" />
-              <img src="../assets/images/espbuCover.png" alt="Description" sizes="(max-width: 600px) 480px, 800px" />
+              <img src="/icons/assets/images/espbuCover.png" alt="Description" sizes="(max-width: 600px) 480px, 800px" />
             </picture> -->
             <!-- <picture>
               <source type="image/webp" srcset="
