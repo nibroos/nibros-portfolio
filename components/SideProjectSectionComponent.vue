@@ -369,7 +369,7 @@
                   </svg>
                 </div>
               </a> -->
-              <a :href="`${envValue.docs_url}/koperasi-multiasa/getting-started/introduction.html`" target="_blank"
+              <a :href="`${envValue.docs_url}/e-learning/getting-started/introduction.html`" target="_blank"
                 class="flex flex-row grow gap-2 justify-center items-center border border-tertiary bg-primaryDarker text-tertiary dark:text-tertiaryDarkest dark:hover:text-primary dark:bg-secondaryLighter dark:hover:bg-tertiaryDarkest hover:text-primary hover:bg-tertiaryDarkest px-3 py-2 rounded-lg text-xs cursor-pointer transition-all ease-in-out w-1/2">
                 <div class="font-medium">Details</div>
                 <div>
