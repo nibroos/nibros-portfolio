@@ -378,7 +378,7 @@
             <div
               class="flex flex-row items-center gap-4 border-l-8 border-t border-r border-secondaryDarker dark:border-secondaryLighter bg-secondaryLighter bg-opacity-50 p-2">
               <div class="ml-2">
-                <img src="/icons/jenkins-svgrepo-com.svg" />
+                <img src="~/assets/icons/jenkins-svgrepo-com.svg" />
               </div>
               <div class="flex flex-col">
                 <div class="text-secondaryDarker dark:text-primary tracking-wider font-semibold text-sm">Jenkins</div>
@@ -416,7 +416,7 @@
             <div
               class="flex flex-row items-center gap-4 border-l-8 border-t border-r border-secondaryDarker dark:border-secondaryLighter bg-secondaryLighter bg-opacity-50 p-2">
               <div class="ml-2">
-                <img src="/icons/arch-linux-svgrepo-com.svg" class="w-[40px] h-[40px]" />
+                <img src="~/assets/icons/arch-linux-svgrepo-com.svg" class="w-[40px] h-[40px]" />
               </div>
               <div class="flex flex-col">
                 <div class="text-secondaryDarker dark:text-primary tracking-wider font-semibold text-sm">Arch Linux
