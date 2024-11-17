@@ -43,6 +43,24 @@
           <div class="font-normal text-sm">
             <ul>
               <li>
+                <a :href="`${envValue.docs_url}/d-erp/getting-started/introduction.html`" target="_blank"
+                  class="hover:underline cursor-pointer transition-all ease-in-out">
+                  D-ERP
+                </a>
+              </li>
+              <li>
+                <a :href="`${envValue.docs_url}/e-learning/getting-started/introduction.html`" target="_blank"
+                  class="hover:underline cursor-pointer transition-all ease-in-out">
+                  E-Learning
+                </a>
+              </li>
+              <li>
+                <a :href="`${envValue.docs_url}/sim-rs/getting-started/introduction.html`" target="_blank"
+                  class="hover:underline cursor-pointer transition-all ease-in-out">
+                  SIM-RS
+                </a>
+              </li>
+              <li>
                 <a :href="`${envValue.docs_url}/portfolio/getting-started/introduction.html`" target="_blank"
                   class="hover:underline cursor-pointer transition-all ease-in-out">
                   Portfolio

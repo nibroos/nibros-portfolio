@@ -42,7 +42,7 @@ module.exports = {
         primary: '#fdf8f6',
         primaryDarker: '#f5f2eb',
         primaryDarkest: '#f2e8e5',
-        secondaryLighter: '#d2bab0',
+        secondaryLighter: '#bfa094',
         secondary: '#a18072',
         secondaryDarker: '#977669',
         tertiary: '#8d7065',

@@ -8,10 +8,11 @@
       </div>
 
       <div class="flex flex-col font-light text-lg xs:w-full w-9/12 lg:w-10/12 sm:w-full sm:text-base">
-        <p class="text-tertiaryDarker dark:text-primaryDarkest">With <span class="font-bold">almost 2 years</span> of
+        <p class="text-tertiaryDarker dark:text-primaryDarkest">With almost <span class="font-bold">3 years</span> of
           development
           experience using
-          <span class="font-bold">Laravel</span> and <span class="font-bold">Vue</span>, I believe I can contribute to
+          <span class="font-bold">Laravel, Express, Go, Nuxt/Vue</span>, I believe I
+          can contribute to
           get
           the best quality of your projects. You're welcome to test
           applications I've worked on in the past, <span class="font-bold">Rate me</span> based on those projects, <span
