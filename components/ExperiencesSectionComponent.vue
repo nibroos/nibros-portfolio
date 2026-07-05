@@ -15,6 +15,45 @@
       <div class="flex flex-col mt-4 text-secondary dark:text-primaryDarkest gap-4 sm:mt-4">
         <div class="flex flex-col">
           <div class="flex flex-row gap-4">
+            <div>Siloam Hospitals (MySiloam)</div>
+            <div class="relative flex items-center py-2 grow">
+              <div class="flex-grow border-t border-secondary dark:border-primaryDarkest"></div>
+            </div>
+          </div>
+          <div class="flex flex-row gap-2 sm:flex-col">
+            <div class="flex flex-col w-1/3 sm:w-full font-normal">
+              <div class="">Tangerang, Indonesia</div>
+              <div class="">Jun 2025 - Jun 2026</div>
+            </div>
+            <div class="w-2/3 flex flex-col gap-2 sm:w-full">
+              <div>Backend Engineer (Contract)</div>
+              <div class="text-sm font-normal">Backend engineer on <span class="font-bold">MySiloam</span>, the patient
+                mobile app (iOS &amp; Android) for Indonesia's largest private hospital network — working across a
+                <span class="font-bold">Backend-for-Frontend (BFF)</span> and five <span class="font-bold">Node.js
+                  microservices</span>.
+              </div>
+              <div>
+                <ul class="list-disc list-outside pl-4 text-sm font-normal">
+                  <li>Integrated the <span class="font-bold">Funddock / Kairos Pay</span> payment gateway (Midtrans,
+                    NOBU, QRIS) across teleconsultation, telechat, secured booking, and prescription refill — with
+                    HMAC-signed requests, asynchronous callbacks, and idempotent change-payment.</li>
+                  <li>Designed a <span class="font-bold">WhatsApp D-1 appointment reminder</span> system (cron
+                    scheduler, deep links, reschedule/cancel handling), eliminating duplicate and post-cancellation
+                    sends.</li>
+                  <li>Built a <span class="font-bold">Health Analytics</span> recommendation engine (doctor / product /
+                    MCU suggestions from BMI, blood pressure &amp; lab results) with an async <span
+                      class="font-bold">AI analysis service (Gemini)</span> behind a Redis cache.</li>
+                  <li>Delivered <span class="font-bold">Self Checkout (SCO)</span> self-payment flows and optimised
+                    expensive doctor-search queries; pushed recurring data fixes into PostgreSQL via triggers.</li>
+                  <li>Remediated a <span class="font-bold">blind SQL-injection</span> vulnerability, hardened secret
+                    hashing, and maintained SonarQube quality gates; supported 8+ mobile releases (9.2.0 → 10.1.2).</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <div class="flex flex-row gap-4">
             <div>PT Yubi Technology</div>
             <div class="relative flex items-center py-2 grow">
               <div class="flex-grow border-t border-secondary dark:border-primaryDarkest"></div>
